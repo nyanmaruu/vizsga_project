@@ -41,5 +41,19 @@ public function getProduct($productId)
     return $result;  
 }
 
+public function addToModal($productId)
+{
+    $sql = "SELECT * FROM products WHERE id LIKE :id";
+    $res = $this->conn->prepare($sql);
+    $res->execute(["id" => $productId]);
+    $result = $res->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;  
+}
+
+
+
+
+
 
 }

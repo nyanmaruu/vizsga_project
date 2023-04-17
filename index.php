@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,8 +19,10 @@
 </head>
 
 <body>
+
+    
     <!-- navbar start -->
-    <nav class="navbar navbar-expand-lg navbar-light container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light container-fluid ">
 
         <div class="row nav_row">
             <div class="col-8 pt-3">
@@ -55,45 +61,21 @@
 
     </nav>
     <!-- navbar end -->
-
+   
+    <!-- carousal start -->
     <div id="hideCarousel">
-        <!-- carousal start -->
-        <div class="row col-lg-12">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
+        
+        <div class="col-12">
+            <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
                 <div class="carousel-inner" id="hideCarousel">
                     <div class="carousel-item active">
-                        <img src="pictures/welcomePicture.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="pictures/welcomePicture.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="pictures/welcomePicture.png" class="d-block w-100" alt="...">
+                        <img src="pictures/Untitled-3.png" class="d-block w-100" alt="...">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
-            <!-- carousal end -->
-
         </div>
-
-        <!-- scroll down icon start -->
-        <div class="row col-lg-12 ">
-            <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
-        </div>
-        <!-- scroll down icon end -->
+        
+       
 
 
         <p id="best_sellers_text">BEST SELLERS</p>
@@ -154,6 +136,7 @@
         </div>
         <!-- best sellers cards end -->
     </div>
+    <!-- carousal end -->
 
     <div class="container" id="productsNav" style="display: none;">
         <div class="row">
@@ -187,25 +170,33 @@
         <div class="modal-dialog modal-dialog-aside" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-
                     <i id="modal_close_button" class="bi bi-x-circle" type="button" class="close" data-dismiss="modal" aria-label="Close">
-
                     </i>
                 </div>
-                <div class="modal-body">
-                    <p>TEST</p>
+                <div class="modal-body" id="showModalProducts">
+                    <p>There are no items in your cart</p>
                 </div>
+                
+                <p class="mx-auto">Subtotal: $</p>
                 <div class="modal-footer justify-content-center mb-5">
+                   
+                    <br>
                     <a href="?page=checkoutPage" type="button" class="btn btn-dark btn-lg rounded-0">CHECKOUT</a>
                 </div>
+
             </div>
-        </div> <!-- modal-bialog .// -->
+        </div> 
     </div>
     <!-- modal.// -->
+
+    
 
 
 
     <?php
+   
+
+
     if (isset($_GET["page"])) {
         switch ($_GET["page"]) {
 
@@ -219,27 +210,16 @@
                 include 'Checkout.php';
                 break;
             case 'productPage':
-                include 'Product.php';
+                include 'ProductDisplay.php';
                 break;
+            
         }
     }
     ?>
 
-
+    <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        $(function() {
-            $("#modal").click(function() {
-                $('#modal_aside_right').modal('show');
-            });
-        });
-
-        $(function() {
-            $("#modal_close_button").click(function() {
-                $('#modal_aside_right').modal('hide');
-            });
-        });
-    </script>
+    
 
 </body>
 
