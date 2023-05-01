@@ -139,5 +139,9 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 #inputQty{
   width: 40px;
 }
+#checkoutImg{
+  width: 50px;
+ 
+}
 
 

@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -177,7 +175,7 @@ session_start();
                     <p>There are no items in your cart</p>
                 </div>
                 
-                <p class="mx-auto">Subtotal: $</p>
+                <p id="subtotal" class="mx-auto"></p>
                 <div class="modal-footer justify-content-center mb-5">
                    
                     <br>

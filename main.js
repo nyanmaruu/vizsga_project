@@ -12,7 +12,20 @@
                         $('#modal_aside_right').modal('show');
                         
                     }
+
                 })
+                $.ajax({
+                    url: "Action.php",
+                    type: "POST",
+                    data: {
+                        action: "getSubtotal",
+                    },
+                    success: function(response) {
+                        $("#subtotal").html(response);
+                       
+                    }
+                })
+              
             });
         });
 
@@ -26,7 +39,7 @@
         {
             $(document).ready(function() {
                 addToCartModal();
-               
+                addToCheckout();
                
             })
         }
@@ -40,8 +53,9 @@
                 data: {
                     action: "addToCartModal",
                     productId:get('productId'),
-                    qty:$( "#inputQty" ).val(),
-        
+                    qty:$( "#inputQty" ).val()
+                   
+                    
                 },
                 success: function(response) {
                     $(".modal-body").html(response);
@@ -49,8 +63,27 @@
                    
                 }
             })
+
+            
+            $.ajax({
+
+                url: "Action.php",
+                type: "POST",
+                data: {
+                    action: "getSubtotal",
+                },
+                success: function(response) {
+                    $("#subtotal").html(response);
+                   
+                }
+            })
           
         }
+
+
+        
+
+        
 
         function removeFromCart(productId)
         {

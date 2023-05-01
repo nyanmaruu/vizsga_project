@@ -1,5 +1,5 @@
 <?php
- session_start();
+
 
 class  Session_Cart {
     
@@ -9,18 +9,19 @@ class  Session_Cart {
       
     }
 
-    public function getProductStructure($product, $qty)
+    public function getProductStructure($product, $qty, $price)
     {
         return[
             'id' => $product[0]['id'],
             'brand' => $product[0]['brand'],
             'name' => $product[0]['name'],
             'description' => $product[0]['description'],
-            'price' => $product[0]['price'],
+            'price' => $price,
+            'baseprice' => $product[0]['price'],
             'quantity' => $qty,
             'image' =>  $product[0]['image']
         ];
-       
+      
     }
 
    
@@ -28,19 +29,28 @@ class  Session_Cart {
     public function setCartSession($product, $qty)
     {
         $isExistProduct = false;
-        foreach($_SESSION['cart'] as $product_value){
         
+        
+        foreach($_SESSION['cart'] as $product_value){
+           
             if($product_value['id'] == $product[0]['id']) {
                 $isExistProduct = true;
+               
             }
        }
-       if($isExistProduct == true ){
+       if($isExistProduct == true )
+       {
+       
         $this->updateProductQuantitySession($product[0]['id'], $qty);
-      
+        
        } 
-       else{
-        $_SESSION['cart'][] = $this->getProductStructure($product, $qty);
-       }    
+       else
+       {
+        $price = $product[0]['price'] * $qty;
+        $_SESSION['cart'][] = $this->getProductStructure($product, $qty, $price );
+        
+       }  
+     
     }
 
 
@@ -54,20 +64,28 @@ class  Session_Cart {
         
     }
 
+    public function getSubtotal()
+    {
+        $totalprice = 0;
+        foreach($_SESSION['cart'] as $product_value){
+           $totalprice += $product_value['price'];
+        }
+        return $totalprice;
+    }
+
     
     public function updateProductQuantitySession($productId, $qty)
     {
         foreach($_SESSION['cart'] as $key => $product_value){
-        
+       
              if($product_value['id'] == $productId) {
                 $_SESSION['cart'][$key]['quantity'] = (int)$product_value['quantity'] + (int)$qty;
+                $_SESSION['cart'][$key]['price']= ((int)$product_value['quantity'] + (int)$qty )* $_SESSION['cart'][$key]['baseprice'];
                 
-               
              }
         }
-        $_SESSION['cart'][$key]['price'] = $_SESSION['cart'][$key]['price'] * (((int)$product_value['quantity'] + (int)$qty)/$qty);
-        print_r((int)$product_value['quantity'] + (int)$qty);
     }
+
 
     public function removeProductSession($productId)
     {
@@ -77,9 +95,7 @@ class  Session_Cart {
                 unset($_SESSION['cart'][$key]);
             } 
         }
-        return $_SESSION['cart'];
-       
-       
+        return $_SESSION['cart']; 
     }
 
     

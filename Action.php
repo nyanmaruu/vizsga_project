@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
 
 require "Querys.php";
 require "./Classes/Session_Cart.php";
@@ -135,31 +135,31 @@ if (isset($_POST["action"]) && $_POST["action"] == "getProduct") {
 }
 
 if (isset($_POST["action"]) && $_POST["action"] == "addToCartModal") {
-   
+
     $output = '';
     $product = $querys->addToModal($_POST["productId"]);
-  
+
     $cartClass->setCartSession($product, $_POST['qty']);
     $cart = $cartClass->getCartSession();
-
-    $pupu = 0;
     
+
+
     foreach ($cart as $row) {
-        $pupu += $row["price"];
+
         $output .=
-        '
+            '
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <img class="w-100" src="' . $row["image"] .' " "/>
+                    <img class="w-100" src="' . $row["image"] . ' " "/>
                 </div>
                 <div class="col-md-8">
                     <p><strong>' . $row["name"] . '</strong> </p>
                     <div>
                         <label>
-                            <input type="text" name="quantity" value="'.$row["quantity"].'" min="1" class="qty" readonly></input>
+                            <input type="text" name="quantity" value="' . $row["quantity"] . '" min="1" class="qty" readonly></input>
                             <span class="price"> $' . $row["price"] . ' </span>
-                            <i class="bi bi-trash"  onclick="removeFromCart('.$row["id"].')" type="button"></i>
+                            <i class="bi bi-trash"  onclick="removeFromCart(' . $row["id"] . ')" type="button"></i>
                             
                         </label>
                     </div>
@@ -169,34 +169,32 @@ if (isset($_POST["action"]) && $_POST["action"] == "addToCartModal") {
         </div>
         <hr>
         ';
-    } 
+    }
     echo $output;
-    print_r($pupu);
-    
 }
 
 if (isset($_POST["action"]) && $_POST["action"] == "getCartData") {
-   
+
     $output = '';
-   
+
     $cart = $cartClass->getCartSession();
-    
-    
+
+
     foreach ($cart as $row) {
         $output .=
-        '
+            '
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <img class="w-100" src="' . $row["image"] .' " "/>
+                    <img class="w-100" src="' . $row["image"] . ' " "/>
                 </div>
                 <div class="col-md-8">
                     <p><strong>' . $row["name"] . '</strong> </p>
                     <div>
                         <label>
-                            <input type="text" name="quantity" value="'.$row["quantity"].'" min="1" class="qty" readonly></input>
+                            <input type="text" name="quantity" value="' . $row["quantity"] . '" min="1" class="qty" readonly></input>
                             <span class="price"> $' . $row["price"] . ' </span>
-                            <i class="bi bi-trash"  onclick="removeFromCart('.$row["id"].')" type="button"></i>
+                            <i class="bi bi-trash"  onclick="removeFromCart(' . $row["id"] . ')" type="button"></i>
                            
                         </label>
                     </div>
@@ -206,32 +204,31 @@ if (isset($_POST["action"]) && $_POST["action"] == "getCartData") {
         </div>
         <hr>
         ';
-    } 
+    }
     echo $output;
-    
 }
 
 if (isset($_POST["action"]) && $_POST["action"] == "removeCartData") {
     $output = '';
-    
+
     $cart = $cartClass->removeProductSession($_POST['productId']);
-    
-    
+
+
     foreach ($cart as $row) {
         $output .=
-        '
+            '
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <img class="w-100" src="' . $row["image"] .' " "/>
+                    <img class="w-100" src="' . $row["image"] . ' " "/>
                 </div>
                 <div class="col-md-8">
                     <p><strong>' . $row["name"] . '</strong> </p>
                     <div>
                         <label>
-                            <input type="text" name="quantity" value="'.$row["quantity"].'" min="1" class="qty" readonly></input>
+                            <input type="text" name="quantity" value="' . $row["quantity"] . '" min="1" class="qty" readonly></input>
                             <span class="price"> $' . $row["price"] . ' </span>
-                            <i class="bi bi-trash"  onclick="removeFromCart('.$row["id"].')" type="button"></i>
+                            <i class="bi bi-trash"  onclick="removeFromCart(' . $row["id"] . ')" type="button"></i>
                             
                         </label>
                     </div>
@@ -241,22 +238,22 @@ if (isset($_POST["action"]) && $_POST["action"] == "removeCartData") {
         </div>
         <hr>
         ';
-    } 
+    }
     echo $output;
 }
-    
+
 
 // if (isset($_POST["action"]) && $_POST["action"]  == "updateQuantity") {
-   
+
 //     $output = '';
-    
+
 //     $cart = $cartClass->updateProductQuantitySession();
-    
-   
-    
-    
+
+
+
+
 //     foreach ($cart as $row) {
-       
+
 //         $output .=
 //         '
 //         <div class="container-fluid">
@@ -266,16 +263,16 @@ if (isset($_POST["action"]) && $_POST["action"] == "removeCartData") {
 //                 </div>
 //                 <div class="col-md-8">
 //                     <p><strong>' . $row["name"] . '</strong> </p>
-                    
+
 //                     <div>
 //                         <label>
 //                             <input type="text" name="quantity" value="'.$row["quantity"].'" min="1" class="qty" readonly></input>
 //                             <span class="price"> $' . $row["price"] . ' </span>
 //                             <i class="bi bi-trash"  onclick="removeFromCart('.$row["id"].')" type="button"></i>
-                            
+
 //                         </label>
 //                     </div>
-                    
+
 //                 </div>
 //             </div>
 //         </div>
@@ -285,7 +282,47 @@ if (isset($_POST["action"]) && $_POST["action"] == "removeCartData") {
 //     echo $output;
 // }
 
+if (isset($_POST["action"]) && $_POST["action"] == "addToCheckout") {
 
+    $output = '';
+    $cart = $cartClass->getCartSession();
 
+    foreach ($cart as $row) {
 
-            
+        $output .=
+            '
+            <ul class="list-group mb-3 sticky-top rounded-0">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                
+                    <div>
+                        <img id="checkoutImg" src="' . $row["image"] . ' " ">
+                            <span class=" position-absolute top-1 translate-middle rounded-circle badge bg-danger">
+                            ' . $row['quantity'] . '</span>
+                        </img>
+                       
+                        <span class="my-0 p-2">' . $row['name'] . '</span>
+                     
+                    </div>
+                    <span class="text-muted">$' . $row['price'] . '</span>
+                    
+                 </li>
+            </ul>
+        ';
+    }
+    echo $output;
+}
+
+if (isset($_POST["action"]) && $_POST["action"] == "getSubtotal") {
+    $subtotal = $cartClass->getSubtotal();
+    $output = '';
+   
+
+   
+
+        $output .=
+            '
+            Subtotal:'.$subtotal.' $
+        ';
+    
+    echo $output;
+}
