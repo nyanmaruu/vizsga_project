@@ -45,6 +45,18 @@ li {list-style-type: none;}
 
 .carousel {margin-bottom: 100px;}
 
+#main-category-landing{
+ margin-bottom: 150px;
+ max-width: 70%;
+}
+
+
+
+#main-category-img-link{
+  
+  color: black;
+}
+
 #best_sellers_text {font-size: 40px;margin-left: 60px;}
 
 /* best seller header end*/
@@ -143,5 +155,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
   width: 50px;
  
 }
+
+
 
 
