@@ -81,10 +81,6 @@
         }
 
 
-        
-
-        
-
         function removeFromCart(productId)
         {
             
@@ -99,6 +95,33 @@
                     $(".modal-body").html(response);
                   
                 }
+            })
+
+            $.ajax({
+
+                url: "Action.php",
+                type: "POST",
+                data: {
+                    action: "getSubtotal",
+                },
+                success: function(response) {
+                    $("#subtotal").html(response);
+                   
+                }
+            })
+
+            $.ajax({
+                url: "Action.php",
+                type: "POST",
+                data: {
+                    action: "getCartData"
+                },
+                success: function(response) {
+                    $(".modal-body").html(response);
+                    $('#modal_aside_right').modal('show');
+                    
+                }
+
             })
         }
 
@@ -120,6 +143,8 @@
                 }
             })
         }
+
+        
 
         function increaseValue(value)
         {

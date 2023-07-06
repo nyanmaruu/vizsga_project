@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@
 
 <body>
 
-    
+
     <!-- navbar start -->
     <nav class="navbar navbar-expand-lg navbar-light container-fluid ">
 
@@ -44,8 +44,9 @@
             </div>
 
             <div class="col-4 nav-div pt-3">
-                
+
                 <!-- navbar icons start -->
+               
                 <li class="nav-item nav-icons ">
                     <a class="nav-link" href=""><i class="bi bi-person-fill"></i></a>
                 </li>
@@ -59,10 +60,10 @@
 
     </nav>
     <!-- navbar end -->
-   
+
     <!-- carousal start -->
     <div id="hideCarousel">
-        
+
         <div class="col-12">
             <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
                 <div class="carousel-inner" id="hideCarousel">
@@ -72,17 +73,17 @@
                 </div>
             </div>
         </div>
-        
-       
 
 
-        
-<!-- best sellers cards start -->
-<!-- main category display start -->
-        <div id="main-category-landing" class="container my-5">
-            <div class="row ">
-            <h2 class="text-uppercase" id="best_sellers_text ">shop by</h2>
-                <div class="col-sm-4 col-lg-2">
+
+
+
+        <h2 class="text-uppercase" id="best_sellers_text ">shop by</h2>
+        <!-- main category display start -->
+        <div id="main-category-landing" class="container">
+            <div class="row  my-5">
+               
+                <div class="col-lg-1 col-sm-2 col-xs-6">
                     <div class="card border-0 ">
                         <img id="main-category-img" src="pictures/main_category_cleanser.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -91,7 +92,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4 col-lg-2">
+                <div class="col-lg-1 col-sm-2 col-xs-6">
                     <div class="card border-0 ">
                         <img id="main-category-img" src="pictures/main_category_cream.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -100,7 +101,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4 col-lg-2">
+                <div class="col-lg-1 col-sm-2 col-xs-6">
                     <div class="card border-0">
                         <img id="main-category-img" src="pictures/main_category_toner.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -109,7 +110,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4 col-lg-2">
+                <div class="col-lg-1 col-sm-2 col-xs-6">
                     <div class="card border-0">
                         <img id="main-category-img" src="pictures/main_category_serum.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -118,7 +119,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4 col-lg-2">
+                <div class="col-lg-1 col-sm-2 col-xs-6">
                     <div class="card border-0">
                         <img id="main-category-img" src="pictures/main_category_essence.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -129,8 +130,8 @@
 
             </div>
         </div>
- <!-- main category display end -->
-
+        <!-- main category display end -->
+        <!-- best sellers cards start -->
         <div class="container col-8">
             <div class="row">
 
@@ -185,13 +186,13 @@
 
             </div>
         </div>
- <!-- best sellers cards end -->
+        <!-- best sellers cards end -->
     </div>
     <!-- carousal end -->
 
     <div class="container" id="productsNav" style="display: none;">
         <div class="row">
-            <ul class="nav navbar-dark bg-dark justify-content-center">
+            <ul class="nav navbar-dark bg-dark justify-content-center fixed-left">
 
                 <li class="nav-item">
                     <a class="nav-link active" href="?page=productsPage&categoryId=all">All</a>
@@ -225,22 +226,22 @@
                     </i>
                 </div>
                 <div class="modal-body" id="showModalProducts">
-                    <p>There are no items in your cart</p>
+                    <p id="modal-text">There are no items in your cart</p>
                 </div>
-                
+
                 <p id="subtotal" class="mx-auto"></p>
                 <div class="modal-footer justify-content-center mb-5">
-                   
+
                     <br>
                     <a href="?page=checkoutPage" type="button" class="btn btn-dark btn-lg rounded-0">CHECKOUT</a>
                 </div>
 
             </div>
-        </div> 
+        </div>
     </div>
     <!-- modal.// -->
 
-    
+
 
 
 
@@ -260,14 +261,17 @@
             case 'productPage':
                 include 'ProductDisplay.php';
                 break;
-            
         }
     }
     ?>
 
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+    <script>
+         function showNoItemsText() {
+            
+    }
+    </script>
 
 </body>
 

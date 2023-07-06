@@ -30,7 +30,7 @@ class  Session_Cart {
     {
         $isExistProduct = false;
         
-        
+       
         foreach($_SESSION['cart'] as $product_value){
            
             if($product_value['id'] == $product[0]['id']) {
@@ -42,7 +42,7 @@ class  Session_Cart {
        {
        
         $this->updateProductQuantitySession($product[0]['id'], $qty);
-        
+       
        } 
        else
        {
@@ -56,13 +56,24 @@ class  Session_Cart {
 
     public function getCartSession()
     {
+      if( empty($_SESSION['cart']))
+        {
+            echo 'There are no items in your cart';
+           
+        } 
+       
         if(!isset($_SESSION['cart']) && empty($_SESSION['cart']))
         {
             $_SESSION['cart'] = [];
+           
         } 
         return $_SESSION['cart'];
-        
+       
     }
+
+   
+
+   
 
     public function getSubtotal()
     {
@@ -72,6 +83,10 @@ class  Session_Cart {
         }
         return $totalprice;
     }
+
+    
+
+    
 
     
     public function updateProductQuantitySession($productId, $qty)
@@ -85,6 +100,8 @@ class  Session_Cart {
              }
         }
     }
+
+    
 
 
     public function removeProductSession($productId)

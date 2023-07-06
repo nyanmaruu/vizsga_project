@@ -102,7 +102,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "getProduct") {
         
                 </div>
 
-                <div class="container " style="border: 1px solid black">
+                <div class="container">
                     <div class="row">   
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 justify-content-center d-flex">
                             <img class="pdimg shadow-lg " src="' . $row["image"] . '" alt="' . $row["name"] . '" "/>
@@ -138,7 +138,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "addToCartModal") {
 
     $output = '';
     $product = $querys->addToModal($_POST["productId"]);
-
+    
     $cartClass->setCartSession($product, $_POST['qty']);
     $cart = $cartClass->getCartSession();
     
@@ -243,6 +243,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "removeCartData") {
 }
 
 
+
 // if (isset($_POST["action"]) && $_POST["action"]  == "updateQuantity") {
 
 //     $output = '';
@@ -321,7 +322,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "getSubtotal") {
 
         $output .=
             '
-            Subtotal:'.$subtotal.' $
+            <h5>Subtotal:  $'.$subtotal.' </h5>
         ';
     
     echo $output;
