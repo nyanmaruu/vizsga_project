@@ -7,13 +7,13 @@ $cartClass = new Session_Cart();
 <div class="container-fluid ">
   <div class="row">
 
-    <div class="col-12 col-sm-12 col-md-4 order-md-2" style="background-color: #DCDCDC;">
+    <div id="checkoutCartSection" class="col-12 col-sm-12 col-md-4 order-md-2" >
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted">Your cart</span>
         <span class="badge badge-secondary badge-pill">3</span>
       </h4>
       <!-- checkout-display action start -->
-      <div id="checkout-display"></div>
+      <div  id="checkout-display"></div>
       <!-- checkout-display action end -->
       <div class="input-group rounded-0 mt-3 ">
         <input type="text" class="form-control rounded-0" placeholder="Promo code">
