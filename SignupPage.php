@@ -2,13 +2,14 @@
 <link rel="stylesheet" href="signup.css">
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
-<form method="POST" action="">
+<div>
 	<div id="container" class="container">
 		<!-- FORM SECTION -->
 		<div class="row">
 			<!-- SIGN UP -->
-			<!-- <div class="col align-items-center flex-col sign-up">
+			<div class="col align-items-center flex-col sign-up">
 				<div class="form-wrapper align-items-center">
+				<form action="./Signup.php" method="POST">
 					<div class="form sign-up">
 						<div class="input-group">
 							<i class='bx bxs-user'></i>
@@ -26,9 +27,10 @@
 							<i class='bx bxs-lock-alt'></i>
 							<input type="password" placeholder="Confirm password" name="pwdrepeat" >
 						</div>
-						<button type="submit" name="submit" formaction="./Signup.php" class="signupbtn">
+						<button type="submit" name="submit"  class="signupbtn">
 							Sign up
 						</button>
+						</form>
 						<p>
 							<span>
 								Already have an account?
@@ -55,12 +57,13 @@
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 			<!-- END SIGN UP -->
 			<!-- SIGN IN -->
 			
 			<div class="col align-items-center flex-col sign-in">
 				<div class="form-wrapper align-items-center">
+				<form action="./Login.php" method="POST">
 					<div class="form sign-in">
 						<div class="input-group">
 							<i class='bx bxs-user'></i>
@@ -70,9 +73,10 @@
 							<i class='bx bxs-lock-alt'></i>
 							<input type="password" placeholder="Password" name="loginpwd">
 						</div>
-						<button type="submit" name="login" formaction="./Login.php">
+						<button type="submit" name="login">
 							Sign in
 						</button>
+						</form>
 						<p>
 							<b>
 								Forgot password?
@@ -145,7 +149,7 @@
 		</div>
 		<!-- END CONTENT SECTION -->
 	</div>
-	</form>
+</div>
 
 	
 
