@@ -47,30 +47,19 @@ if (isset($_POST["action"]) && $_POST["action"] == "getSearchResult") {
     $data = $querys->getSearchResult();
     foreach ($data as $row) {
         $output .=
-            '
-             
-            <div class="col-6 col-md-4 col-lg-3 mb-4">
-            <div class="card border-0 mt-5">
-            
-                <div class="card-header border-0" >
-                <a>
-                 <img class="card-image  h-200 border-0 "src="' . $row["image"] . '" alt="' . $row["name"] . '" />
-                 </a>
-                </div>
-
-                <div class="card-body">
-                    <h6 class="border-0 mb-0"><strong>' . $row["brand"] . '</strong></h6>
-                    <hr>
-                    <p class="border-0">' . $row["name"] . '</p>
-                    <div class="card-footer">
-                    
-                    <p class="">' . $row["price"] . ' $</p>
-                    </div>
-                </div>  
-       
-            </div>
-            </div> 
-           
+        '
+        <div class="container">
+            <ul>
+                <li> <a href="?page=productPage&productId=' . $row["id"] . '"> </li>
+                <li>  <img  src="' . $row["image"] . '" alt="' . $row["name"] . '" "/> </li>
+                <li>  <p class="border-0">' . $row["name"] . '</p> </li>
+                <li>  <p>' . $row["description"] . '</p> </li>
+               
+            </ul>
+        </div>
+               
+   
+        
         ';
     }
     echo $output;

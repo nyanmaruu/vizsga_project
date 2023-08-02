@@ -1,6 +1,6 @@
 <?php
 
-class SignUp extends Dbh {
+class SignUp extends Connection {
 
     protected  function setUser($uid, $pwd, $email)
     {
@@ -20,7 +20,7 @@ class SignUp extends Dbh {
 
     protected  function checkUser($uid, $email)
     {
-        $stmt = $this->connect()->prepare('SELECT id FROM users WHERE users_name = ? OR users_email = ?;');
+        $stmt = $this->connect()->prepare('SELECT users_name FROM users WHERE users_name = ? OR users_email = ?;');
 
         if(!$stmt->execute(array($uid, $email)))
         {

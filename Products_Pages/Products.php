@@ -1,7 +1,7 @@
 <div class="container col-4 col-lg-2 mt-5 ">
     <input type="text" class="form-control rounded-0 d-flex flex-row-reverse" id="search" placeholder="Search..." autocomplete="off">    
 </div>
-<div class="row" id="search_result"></div>
+<div class="container" id="search_result"></div>
 
 <div class="row" id="showAllProducts"></div>
 
@@ -53,6 +53,7 @@
                     success: function(data){
                         $("#search_result").html(data);
                         $("#search_result").css("display", "block");
+                        
                     }
                 })
             }

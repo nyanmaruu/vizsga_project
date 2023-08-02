@@ -20,13 +20,40 @@
 
 
     <!-- navbar start -->
-    <nav class="navbar navbar-expand-lg navbar-light container-fluid ">
+    <nav id="hideNavbar" class="navbar navbar-expand-lg navbar-light container-fluid ">
 
         <div class="row nav_row">
             <div class="col-8 pt-3">
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!-- adminbar -->
+                    <ul class="menu-member">
+                        <?php
+                            if(isset($_SESSION["userid"]))
+                           
+                            {
+                              
+                        ?>
+                            <li><a href=""><?php echo $_SESSION["useruid"]; ?></a></li>
+                            <li><a href="./Logout.php">Logout</a></li>
+                            
+                        <?php
+                            }
+                            else
+                            {
+                        ?>
+                                <li>NOT LOGGED IN</li>
+                        <?php
+                            }
+                        ?>   
+                        
+                        
+                        
+                      
+                    </ul>
+                <!-- adminbar -->
 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <a id="hide_brand" class="navbar-brand" href="?page=index">
@@ -48,7 +75,7 @@
                 <!-- navbar icons start -->
                
                 <li class="nav-item nav-icons ">
-                    <a class="nav-link" href=""><i class="bi bi-person-fill"></i></a>
+                    <a class="nav-link" href="?page=signupPage"><i class="bi bi-person-fill"></i></a>
                 </li>
                 <li class="nav-item nav-icons ">
                     <a class="nav-link" href="#" id="modal" data-toggle="modal" data-target="#modal_aside_right "><i class="bi bi-basket3-fill"></i></a>
@@ -260,6 +287,9 @@
                 break;
             case 'productPage':
                 include 'ProductDisplay.php';
+                break;
+            case 'signupPage':
+                include 'SignupPage.php';
                 break;
         }
     }

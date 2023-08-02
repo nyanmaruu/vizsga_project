@@ -9,8 +9,8 @@ $cartClass = new Session_Cart();
 
     <div id="checkoutCartSection" class="col-12 col-sm-12 col-md-4 order-md-2" >
       <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">Your cart</span>
-        <span class="badge badge-secondary badge-pill">3</span>
+        <span class="text-muted mt-2">Your cart</span>
+        
       </h4>
       <!-- checkout-display action start -->
       <div  id="checkout-display"></div>
@@ -59,7 +59,7 @@ $cartClass = new Session_Cart();
         <div class="col-12">
           <h4 style="display: inline-block;margin-right: 160px;">Contact information</h4>
           <span style="display: inline-block;">Already have an account?
-            <a style="text-decoration: none; color: rgb(255, 0, 119);" href="">Log in.</a>
+            <a style="text-decoration: none; color: rgb(255, 0, 119);" href="?page=signupPage">Log in.</a>
           </span>
           <div class="col-12 mb-3 mt-4">
             <input type="email" class="form-control rounded-0" id="email" placeholder="Email">
@@ -155,10 +155,10 @@ $cartClass = new Session_Cart();
             </div>
             <hr class="mb-4">
             <i class="bi bi-box-arrow-in-left"></i>
-            <span><a href="">Return to cart.</a></span>
+            <span><a href="javascript:history.back(1)">Continue shopping</a> </span>
             <button class="btn btn-dark btn-block rounded-0" type="submit">Continue to checkout</button>
             <footer class="my-5 pt-5 text-muted text-center text-small">
-              <p class="mb-1">© 2017-2019 Company Name</p>
+              <p class="mb-1">©Skincare Co. 2023 </p>
               <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Privacy</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>
