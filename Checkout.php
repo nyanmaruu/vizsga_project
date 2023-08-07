@@ -30,7 +30,8 @@ $cartClass = new Session_Cart();
               <th scope="row">Subtotal</th>
               <td></td>
               <td></td>
-              <td>$<?php echo $cartClass->getSubtotal() ?></td>
+              <!-- checkout subtotal display start -->
+              <td class="checkoutSubtotal">$</td>
             </tr>
             <tr>
               <th scope="row">Shipping</th>
@@ -42,7 +43,8 @@ $cartClass = new Session_Cart();
               <th scope="row">Total</th>
               <td></td>
               <td></td>
-              <td>$<?php echo $cartClass->getSubtotal() ?></td>
+              <td class="checkoutSubtotal">$</td>
+              <!-- checkout subtotal display end-->
             </tr>
           </tbody>
         </table>
@@ -182,7 +184,7 @@ $cartClass = new Session_Cart();
   $(document).ready(function() {
     checkout();
     hideCarousel();
-
+   
   })
 
   function get(name) {
@@ -202,13 +204,76 @@ $cartClass = new Session_Cart();
       type: "POST",
       data: {
         action: "addToCheckout",
-        productId: get('productId')
+        productId: get('productId'),
+       
       },
       success: function(response) {
         $("#checkout-display").html(response);
         hideCarousel();
 
       }
+    }),
+    $.ajax({
+      url: "Action.php",
+      type: "POST",
+      data: {
+          action: "getSubtotal",
+      },
+      success: function(response) {
+          $(".checkoutSubtotal").html(response);
+          
+    }
     })
   }
+
+  function removeFromCheckout(productId)
+        {
+            
+            $.ajax({
+                url: "Action.php",
+                type: "POST",
+                data: {
+                    action: "removeCheckoutData",
+                    productId:productId
+                },
+                success: function(response) {
+                    $("#checkout-display").html(response);
+                   
+                }
+            })
+
+            $.ajax({
+
+                url: "Action.php",
+                type: "POST",
+                data: {
+                    action: "getSubtotal",
+                },
+                success: function(response) {
+                    $(".checkoutSubtotal").html(response);
+                    
+                }
+            })
+
+            $.ajax({
+                url: "Action.php",
+                type: "POST",
+                data: {
+                    action: "addToCheckout"
+                },
+                success: function(response) {
+                    $("#checkout-display").html(response);
+                    
+                    
+                }
+
+            })
+
+            
+        }
+       
+  
+
+
+
 </script>

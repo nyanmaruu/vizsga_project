@@ -255,8 +255,9 @@
                 <div class="modal-body" id="showModalProducts">
                     
                 </div>
-
-                <p id="subtotal" class="mx-auto"></p>
+                    <!--modal subtotal display start -->          
+                <h5 class="mx-auto">Subtotal: <span id="subtotal"></span> </h5>
+                    <!--modal subtotal display end --> 
                 <div class="modal-footer justify-content-center mb-5">
 
                     <br>

@@ -22,6 +22,7 @@
                     },
                     success: function(response) {
                         $("#subtotal").html(response);
+                        $("#checkout-display").html(response);
                        
                     }
                 })
@@ -40,7 +41,7 @@
             $(document).ready(function() {
                 addToCartModal();
                 addToCheckout();
-               
+              
             })
         }
 
@@ -124,6 +125,10 @@
 
             })
         }
+
+        
+       
+       
 
        
 

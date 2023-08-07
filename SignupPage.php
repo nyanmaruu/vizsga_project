@@ -38,6 +38,10 @@
 							<b onclick="toggle()" class="pointer">
 								Sign in here
 							</b>
+							<hr>
+							<span>
+								<a href="?page=index" style="text-decoration: none;">Back to frontpage</a>
+							</span>
 						</p>
 					</div>
 				</div>
@@ -77,11 +81,7 @@
 							Sign in
 						</button>
 						</form>
-						<p>
-							<b>
-								Forgot password?
-							</b>
-						</p>
+						
 						<p>
 							<span>
 								Don't have an account?
@@ -89,7 +89,12 @@
 							<b onclick="toggle()" class="pointer">
 								Sign up here
 							</b>
+							<hr>
+							<span>
+								<a href="?page=index" style="text-decoration: none;">Back to frontpage</a>
+							</span>
 						</p>
+						
 					</div>
 				</div>
 				<div class="form-wrapper">
@@ -107,7 +112,7 @@
 							<i class='bx bxl-instagram-alt'></i>
 						</div>
 					</div>
-				</div>
+				
 			</div>
 		
 			<!-- END SIGN IN -->
