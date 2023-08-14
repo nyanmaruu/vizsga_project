@@ -81,7 +81,6 @@
           
         }
 
-
         function removeFromCart(productId)
         {
             
@@ -126,12 +125,6 @@
             })
         }
 
-        
-       
-       
-
-       
-
         function updateProductQuantity()
         {
            
@@ -147,9 +140,7 @@
                    
                 }
             })
-        }
-
-        
+        }       
 
         function increaseValue(value)
         {

@@ -47,7 +47,7 @@ li {list-style-type: none;}
 
 #main-category-landing{
  margin-bottom: 150px;
- margin-left: 500px;
+
 
  
 }
@@ -59,7 +59,7 @@ li {list-style-type: none;}
   color: black;
 }
 
-#best_sellers_text {font-size: 40px;margin-left: 60px;}
+#best_sellers_text {font-size: 40px; margin-left: 100px; margin-bottom: 40px; text-transform: uppercase;}
 
 /* best seller header end*/
 

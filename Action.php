@@ -88,13 +88,13 @@ if (isset($_POST["action"]) && $_POST["action"] == "getProduct") {
             <div id="pdp-banner" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 
                 <div class="carousel-inner">
-                    <div id="banner-text" class="carousel-item active text-center data-bs-interval="10000"">
+                    <div id="banner-text" class="carousel-item active text-center data-bs-interval="500"">
                     <p class="mt-1">FREE SHIPPING!</p>
                     </div>
-                    <div id="banner-text" class="carousel-item  text-center data-bs-interval="2000"">
+                    <div id="banner-text" class="carousel-item  text-center data-bs-interval="500"">
                         <p class="mt-1">SIGN IN TO GET A 10% DISCOUNT!</p>
                     </div>
-                    <div id="banner-text" class="carousel-item text-center data-bs-interval="2000"">
+                    <div id="banner-text" class="carousel-item text-center data-bs-interval="500"">
                     <p class="mt-1">FREE SAMPLE!</p>
                     </div>
                 </div>

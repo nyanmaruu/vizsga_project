@@ -105,12 +105,12 @@
 
 
 
-        <h2 class="text-uppercase" id="best_sellers_text ">shop by</h2>
+        <h2 id="best_sellers_text">shop by</h2>
         <!-- main category display start -->
-        <div id="main-category-landing" class="container">
-            <div class="row  my-5">
+        <div id="main-category-landing" class="container w-50 ">
+            <div class="row">
                
-                <div class="col-lg-1 col-sm-2 col-xs-6">
+                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
                     <div class="card border-0 ">
                         <img id="main-category-img" src="pictures/main_category_cleanser.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -119,7 +119,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-1 col-sm-2 col-xs-6">
+                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
                     <div class="card border-0 ">
                         <img id="main-category-img" src="pictures/main_category_cream.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -128,7 +128,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-1 col-sm-2 col-xs-6">
+                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
                     <div class="card border-0">
                         <img id="main-category-img" src="pictures/main_category_toner.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -137,7 +137,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-1 col-sm-2 col-xs-6">
+                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
                     <div class="card border-0">
                         <img id="main-category-img" src="pictures/main_category_serum.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -146,7 +146,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-1 col-sm-2 col-xs-6">
+                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2" >
                     <div class="card border-0">
                         <img id="main-category-img" src="pictures/main_category_essence.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
