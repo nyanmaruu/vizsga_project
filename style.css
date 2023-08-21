@@ -240,3 +240,8 @@ body {
   width: 150px;
   
 }
+
+#username_display{
+  text-decoration: none;
+  color: black;
+}

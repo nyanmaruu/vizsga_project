@@ -28,33 +28,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- adminbar -->
-                    <ul class="menu-member">
-                        <?php
-                            if(isset($_SESSION["userid"]))
-                           
-                            {
-                              
-                        ?>
-                            <li><a href=""><?php echo $_SESSION["useruid"]; ?></a></li>
-                            <li><a href="./Logout.php">Logout</a></li>
-                            
-                        <?php
-                            }
-                            else
-                            {
-                        ?>
-                                <li>NOT LOGGED IN</li>
-                        <?php
-                            }
-                        ?>   
-                        
-                        
-                        
-                      
-                    </ul>
-                <!-- adminbar -->
-
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <a id="hide_brand" class="navbar-brand" href="?page=index">
                         SKINCARE
@@ -73,10 +46,27 @@
             <div class="col-4 nav-div pt-3">
 
                 <!-- navbar icons start -->
-               
-                <li class="nav-item nav-icons ">
+                <?php
+                if (isset($_SESSION["userid"]) && $_SESSION["usertypeid"] == 1) {
+                ?>
+                    <li><a id="username_display" href="./Admin_Pages/admin.php"><?php echo $_SESSION["useruid"] ?> admin</a></li>
+                <?php
+                } else if(isset($_SESSION["userid"]) && $_SESSION["usertypeid"] == 0) {
+                ?>
+                    <li><a id="username_display" href=""><?php echo $_SESSION["useruid"] ?></a></li>
+                    <a href="Logout.php" class="list-group-item list-group-item-action py-2 ripple">
+                    <span>Log out</span>
+                </a>
+                <?php
+                } else {
+                    ?>
+                    <li class="nav-item nav-icons ">
                     <a class="nav-link" href="?page=signupPage"><i class="bi bi-person-fill"></i></a>
                 </li>
+                <?php
+                }
+                ?>
+
                 <li class="nav-item nav-icons ">
                     <a class="nav-link" href="#" id="modal" data-toggle="modal" data-target="#modal_aside_right "><i class="bi bi-basket3-fill"></i></a>
                 </li>
@@ -109,7 +99,7 @@
         <!-- main category display start -->
         <div id="main-category-landing" class="container w-50 ">
             <div class="row">
-               
+
                 <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
                     <div class="card border-0 ">
                         <img id="main-category-img" src="pictures/main_category_cleanser.png" class="card-img-top" alt="COSRX-snail">
@@ -146,7 +136,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2" >
+                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
                     <div class="card border-0">
                         <img id="main-category-img" src="pictures/main_category_essence.png" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
@@ -253,11 +243,11 @@
                     </i>
                 </div>
                 <div class="modal-body" id="showModalProducts">
-                    
+
                 </div>
-                    <!--modal subtotal display start -->          
+                <!--modal subtotal display start -->
                 <h5 class="mx-auto">Subtotal: <span id="subtotal"></span> </h5>
-                    <!--modal subtotal display end --> 
+                <!--modal subtotal display end -->
                 <div class="modal-footer justify-content-center mb-5">
 
                     <br>
@@ -298,7 +288,7 @@
 
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+
 
 </body>
 

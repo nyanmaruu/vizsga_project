@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +38,7 @@
                     <span>Manage Orders</span>
                 </a>
 
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+                <a href="../Logout.php" class="list-group-item list-group-item-action py-2 ripple">
                     <span>Log out</span>
                 </a>
 
@@ -55,8 +57,9 @@
                 </button>
                 <!-- Welcome admin text -->
                 <a class="navbar-brand mt-3" href="#">
-                    <span>Welcome admin!</span>
+                    <span>Welcome <?php echo $_SESSION["useruid"] ?>! </span>
                 </a>
+                
             </div>
         </nav>
         <!-- Navbar end-->
@@ -399,7 +402,28 @@
                 }
             });
         });
+
+       
+  $(document).ready(function() {
+   
+    hideCarousel();
+   
+  })
+
+  function get(name) {
+    if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+  }
+
+  function hideCarousel() {
+
+    document.getElementById("hideCarousel").style.display = "none";
+  }
+
+
     </script>
+
+
 </body>
 
 </html>

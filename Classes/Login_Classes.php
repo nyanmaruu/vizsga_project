@@ -22,16 +22,16 @@ class Login extends Connection {
             exit();
         }
 
-        $pwdHashed = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $checkPwd = password_verify($pwd, $pwdHashed[0]["users_pwd"] );
+        $checkPwd = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // $checkPwd = password_verify($pwd, $pwdHashed[0]["users_pwd"] );
 
-        if($checkPwd == false)
+        if($checkPwd == false) 
         {
             $stmt = null;
             header("location: http://localhost/vizsga_project/?page=index&error=wrongpwd");
             exit();
         }
-        elseif($checkPwd == true)
+        elseif($checkPwd == true) 
         {
             $stmt = $this->connect()->prepare('SELECT * FROM users WHERE users_name = ? OR users_email = ? AND users_pwd = ?;');
 
@@ -48,6 +48,7 @@ class Login extends Connection {
                 session_start();
                 $_SESSION["userid"] = $user[0]["id"];
                 $_SESSION["useruid"] = $user[0]["users_name"];
+                $_SESSION["usertypeid"] = $user[0]["type_id"];
                 
         }
 
