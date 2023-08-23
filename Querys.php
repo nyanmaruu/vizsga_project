@@ -101,4 +101,44 @@ class Querys extends Connection
             exit();
         }
     }
+
+    
+// on admin page we get the orders in the table
+    public function addOrderToTable()
+    {
+        $sql = "SELECT a.id, c.firstName, c.lastName, d.users_email, c.adress, a.total_price
+               FROM order_products a
+               INNER JOIN orders b
+               ON a.order_id = b.id
+               INNER JOIN user_adress c ON b.user_id = c.userid
+               INNER JOIN users d ON b.user_id = d.id
+               GROUP BY a.order_id";
+        $res = $this->conn->prepare($sql);
+        $res->execute();
+        $result = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function getOrderId()
+    {
+        $sql="SELECT id FROM orders";
+        $res = $this->conn->prepare($sql);
+        $res->execute();
+        $result = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+
+    public function deleteOrder($orderId)
+    {
+        $sql = "DELETE  FROM order_products WHERE id = :id";
+        $res = $this->conn->prepare($sql);
+        $res->bindValue(":id", $orderId);
+        $res->execute();
+        $result = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
 }

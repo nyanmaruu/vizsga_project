@@ -24,8 +24,6 @@ class  Session_Cart {
       
     }
 
-   
-
     public function setCartSession($product, $qty)
     {
         $isExistProduct = false;
@@ -53,7 +51,6 @@ class  Session_Cart {
      
     }
 
-
     public function getCartSession()
     {
       if( empty($_SESSION['cart']))
@@ -71,10 +68,6 @@ class  Session_Cart {
        
     }
 
-   
-
-   
-
     public function getSubtotal()
     {
         $totalprice = 0;
@@ -84,11 +77,6 @@ class  Session_Cart {
         return $totalprice;
     }
 
-    
-
-    
-
-    
     public function updateProductQuantitySession($productId, $qty)
     {
         foreach($_SESSION['cart'] as $key => $product_value){
@@ -100,9 +88,6 @@ class  Session_Cart {
              }
         }
     }
-
-    
-
 
     public function removeProductSession($productId)
     {

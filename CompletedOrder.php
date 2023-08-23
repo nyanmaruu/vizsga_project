@@ -18,7 +18,13 @@ if(isset($_POST["completedOrderBtn"]))
 
     $querys= new Querys();
     $user =  $_SESSION["userid"];
-    $querys->contactInformationAddToDb($user, $firstName, $lastName, $zip, $city, $address, $phone, $ccName, $ccNumber, $ccExpiration, $ccCvv);
+    if(!empty($user)) {
+        $querys->contactInformationAddToDb($user, $firstName, $lastName, $zip, $city, $address, $phone, $ccName, $ccNumber, $ccExpiration, $ccCvv);
+    }else {
+        $user = 0;
+        $querys->contactInformationAddToDb($user, $firstName, $lastName, $zip, $city, $address, $phone, $ccName, $ccNumber, $ccExpiration, $ccCvv);
+    }
+    unset($_SESSION["cart"]);
 
     header("location: http://localhost/vizsga_project/?page=index&&completedorder ");
 }
