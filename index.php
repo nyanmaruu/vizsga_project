@@ -49,13 +49,16 @@
                 <?php
                 if (isset($_SESSION["userid"]) && $_SESSION["usertypeid"] == 1) {
                 ?>
-                    <li><a id="username_display" href="./Admin_Pages/admin.php"><?php echo $_SESSION["useruid"] ?> admin</a></li>
+                    <li><a id="username_display" href="./Admin_Pages/admin.php">
+                        <?php echo $_SESSION["useruid"] ?> 
+                        admin</a>
+                    </li>
                 <?php
                 } else if(isset($_SESSION["userid"]) && $_SESSION["usertypeid"] == 0) {
                 ?>
-                    <li><a id="username_display" href=""><?php echo $_SESSION["useruid"] ?></a></li>
+                    <a id="username_display" href=""><?php echo $_SESSION["useruid"] ?></a>
                     <a href="Logout.php" class="list-group-item list-group-item-action py-2 ripple">
-                    <span>Log out</span>
+                    <span class="bi bi-box-arrow-right"></span>
                 </a>
                 <?php
                 } else {

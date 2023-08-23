@@ -321,6 +321,61 @@ if (isset($_POST["action"]) && $_POST["action"] == "removeCheckoutData") {
 
 }
 
+// if (isset($_POST["action"]) && $_POST["action"] == "completedOrder" 
+// && isset(
+
+   
+//     $_POST['emailValue'],
+//     $_POST['firstNameValue'],
+//     $_POST['lastNameValue'],
+//     $_POST['zipValue'], 
+//     $_POST['cityValue'],  
+//     $_POST['adressValue'], 
+//     $_POST['phoneValue'],
+//     $_POST['ccNameValue'],
+//     $_POST['ccNumberValue'],
+//     $_POST['ccExpirationValue'],
+//     $_POST['ccCvvValue'],)) {
+
+      
+
+//         $data = $querys->contactInformationAddToDb(
+//         $_POST['emailValue'],
+//         $_POST['firstNameValue'],
+//         $_POST['lastNameValue'],
+//         $_POST['zipValue'], 
+//         $_POST['cityValue'],  
+//         $_POST['adressValue'], 
+//         $_POST['phoneValue'],
+//         $_POST['ccNameValue'],
+//         $_POST['ccNumberValue'],
+//         $_POST['ccExpirationValue'],
+//         $_POST['ccCvvValue'],);
+
+
+// }
+
+function test($email, $firstname, $lastName, $zip, $city, $adress, $phone, $ccName, $ccNumber, $ccExpiration, $ccCvv ){
+    $querys = new Querys();
+    $querys->contactInformationAddToDb($email, $firstname, $lastName, $zip, $city, $adress, $phone, $ccName, $ccNumber, $ccExpiration, $ccCvv );
+
+       
+}
+if (isset($_POST["action"]) && $_POST["action"] == "completedOrder" 
+ ) {
+        test(
+            $_POST['emailValue'],
+            $_POST['firstNameValue'],
+            $_POST['lastNameValue'],
+            $_POST['zipValue'], 
+            $_POST['cityValue'],  
+            $_POST['adressValue'], 
+            $_POST['phoneValue'],
+            $_POST['ccNameValue'],
+            $_POST['ccNumberValue'],
+            $_POST['ccExpirationValue'],
+            $_POST['ccCvvValue']);
+    }
 
 
 if (isset($_POST["action"]) && $_POST["action"] == "getSubtotal") {
