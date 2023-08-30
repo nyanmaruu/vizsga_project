@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -20,44 +20,21 @@
 </head>
 
 <body>
-    <!-- sidebar start -->
-    <!--Main Navigation-->
     <header>
-        <!-- Sidebar -->
-        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-
-
-            <div class="position-sticky">
-               
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple mt-3">
-                    <span>Manage Orders</span>
-                </a>
-
-                <a href="../Logout.php" class="list-group-item list-group-item-action py-2 ripple">
-                    <span>Log out</span>
-                </a>
-
-            </div>
-            </div>
-        </nav>
-        <!-- Sidebar -->
-
+     
         <!-- Navbar start -->
         <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <div class="container-fluid">
-                <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
-                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <!-- Welcome admin text -->
-                <a class="navbar-brand mt-3" href="#">
+                <h5 class="navbar-brand mt-3" href="#">
                     <span>Welcome <?php echo $_SESSION["useruid"] ?>! </span>
+                </h5>
+                <a class="btn btn-dark btn-sm"  href="../Logout.php" >
+                    <span>Log out</span>
                 </a>
-                
             </div>
         </nav>
         <!-- Navbar end-->
+
     </header>
 
 
@@ -72,57 +49,65 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-4 col-xl-3">
-                <div class="card bg-c-blue order-card">
+                <div class="card bg-c-blue order-card py-3">
                     <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
+                        <h5 class="m-b-20">Orders Received</h5>
                         <h2 class="text-right">
-                            <i class="fa fa-cart-plus f-left"></i><span>486</span>
+                            <i class="fa fa-cart-plus f-left"></i>
+                            <!-- display counted order start -->
+                            <span id="displayOrdersNumber">
+                            </span>
+                            <!-- display counted order start -->
                         </h2>
-                        <p class="m-b-0">
-                            Completed Orders<span class="f-right">351</span>
-                        </p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 col-xl-3">
-                <div class="card bg-c-green order-card">
+                <div class="card bg-c-green order-card py-3">
                     <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
+                        <h5 class="m-b-20">All user</h5>
                         <h2 class="text-right">
-                            <i class="fa fa-rocket f-left"></i><span>486</span>
+                            <i class="fa fa-users f-left"></i>
+                            <!-- display counted users start -->
+                            <span id="displayUsersNumber">
+                                
+                            </span>
+                             <!-- display counted users end -->
                         </h2>
-                        <p class="m-b-0">
-                            Completed Orders<span class="f-right">351</span>
-                        </p>
+                        
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 col-xl-3">
-                <div class="card bg-c-yellow order-card">
+                <div class="card bg-c-yellow order-card py-3">
                     <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
+                        <h5 class="m-b-20">All admin</h5>
                         <h2 class="text-right">
-                            <i class="fa fa-refresh f-left"></i><span>486</span>
+                            <i class="fa fa-solid fa-user f-left"></i>
+                            <!-- display counted admins start -->
+                            <span  id="displayAdminsNumber">
+
+                            </span>
+                             <!-- display counted admins end -->
                         </h2>
-                        <p class="m-b-0">
-                            Completed Orders<span class="f-right">351</span>
-                        </p>
+                        
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 col-xl-3">
-                <div class="card bg-c-pink order-card">
+                <div class="card bg-c-pink order-card py-3">
                     <div class="card-block">
-                        <h6 class="m-b-20">Orders Received</h6>
+                        <h5 class="m-b-20">All products</h5>
                         <h2 class="text-right">
-                            <i class="fa fa-credit-card f-left"></i><span>486</span>
+                            <i class="fas fa-folder f-left "></i>
+                            <span  id="displayProductsNumber">
+
+                            </span>
                         </h2>
-                        <p class="m-b-0">
-                            Completed Orders<span class="f-right">351</span>
-                        </p>
+                        
                     </div>
                 </div>
             </div>
@@ -148,10 +133,7 @@
                     <thead>
                         <tr>
                             <th>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="selectAll" />
-                                    <label for="selectAll"></label>
-                                </span>
+                                
                             </th>
                             <th>Name</th>
                             <th>Email</th>

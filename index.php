@@ -18,6 +18,8 @@
 
 <body>
 
+<div class="alert alert-warning" role="alert" id="errorHandler"></div>
+
 
     <!-- navbar start -->
     <nav id="hideNavbar" class="navbar navbar-expand-lg navbar-light container-fluid ">
@@ -43,41 +45,37 @@
                 </div>
             </div>
 
-            <div class="col-4 nav-div pt-3">
-
-                <!-- navbar icons start -->
-                <?php
-                if (isset($_SESSION["userid"]) && $_SESSION["usertypeid"] == 1) {
-                ?>
-                    <li><a id="username_display" href="./Admin_Pages/admin.php">
-                        <?php echo $_SESSION["useruid"] ?> 
-                        admin</a>
-                    </li>
-                <?php
-                } else if(isset($_SESSION["userid"]) && $_SESSION["usertypeid"] == 0) {
-                ?>
-                    <a id="username_display" href=""><?php echo $_SESSION["useruid"] ?></a>
-                    <a href="Logout.php" class="list-group-item list-group-item-action py-2 ripple">
-                    <span class="bi bi-box-arrow-right"></span>
-                </a>
-                <?php
-                } else {
-                    ?>
-                    <li class="nav-item nav-icons ">
-                    <a class="nav-link" href="?page=signupPage"><i class="bi bi-person-fill"></i></a>
-                </li>
-                <?php
-                }
-                ?>
-
-                <li class="nav-item nav-icons ">
-                    <a class="nav-link" href="#" id="modal" data-toggle="modal" data-target="#modal_aside_right "><i class="bi bi-basket3-fill"></i></a>
-                </li>
-                <!-- navbar icons end -->
-            </div>
-
+            <div class="col-4 nav-div pt-3 d-flex align-items-center justify-content-end">
+    <!-- navbar icons start -->
+    <?php
+    if (isset($_SESSION["userid"]) && $_SESSION["usertypeid"] == 1) {
+    ?>
+        <li><a id="username_display" href="./Admin_Pages/admin.php">
+            <?php echo $_SESSION["useruid"] ?> 
+            admin</a>
+        </li>
+    <?php
+    } else if(isset($_SESSION["userid"]) && $_SESSION["usertypeid"] == 0) {
+    ?>
+        <li class="d-flex align-items-center">
+            <a id="username_display" href="http://localhost/vizsga_project/Profile_Pages/profile.php"><?php echo $_SESSION["useruid"] ?></a>
+            
+        </li>
+    <?php
+    } else {
+    ?>
+        <li class="nav-item nav-icons ">
+            <a class="nav-link" href="?page=signupPage"><i class="bi bi-person-fill"></i></a>
+        </li>
+    <?php
+    }
+    ?>
+    <li class="nav-item nav-icons">
+        <a class="nav-link" href="#" id="modal" data-toggle="modal" data-target="#modal_aside_right"><i class="bi bi-basket3-fill"></i></a>
+    </li>
+    <!-- navbar icons end -->
+</div>
         </div>
-
     </nav>
     <!-- navbar end -->
 

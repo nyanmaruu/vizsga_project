@@ -358,4 +358,214 @@ if (isset($_POST["action"]) && $_POST["action"] == "getSubtotal") {
 }
 
 
+if (isset($_POST["action"]) && $_POST["action"] == "profileUpdate" ) {
 
+    $output = '';
+    $querys = new Querys();
+    $data = $querys->getAddresInfo(); 
+    
+    if(isset(($_SESSION["addressId"])) && !empty($data)) {
+        foreach ($data as $row) {
+
+            $output .=
+                '
+                
+                <div class="row mt-2">
+                <div class="col-md-6"><label class="labels">First name</label>
+                    <input type="text" class="form-control" placeholder="first name" value="'.$row["firstName"].'" name="firstName">
+                </div>
+                <div class="col-md-6"><label class="labels">Last name</label>
+                    <input type="text" class="form-control" value="'.$row["lastName"].'" placeholder="last name" name="lastName">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12"><label class="labels">Phone Number</label>
+                    <input type="text" class="form-control" placeholder="enter phone number" value="'.$row["phone"].'" name="phone">
+                </div>
+                
+                <div class="col-md-6"><label class="labels">Zip</label>
+                    <input type="text" class="form-control" placeholder="enter zip" value="'.$row["zip"].'" name="zip"> 
+                </div>
+                <div class="col-md-6"><label class="labels">City</label>
+                    <input type="text" class="form-control" placeholder="enter city" value="'.$row["city"].'" name="city">
+                </div>
+               
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12"><label class="labels">Address</label>
+                    <input type="text" class="form-control" placeholder="enter address" value="'.$row["adress"].'" name="address">
+                </div>
+                
+            </div>
+            <div class="mt-5 text-center">
+            <a href="http://localhost/vizsga_project/?page=index" class="btn btn-dark profile-button">Back</a>
+                <button class="btn btn-dark profile-button" name="profileAddressUpdate" type="submit">Update Profile</button>
+            </div>
+            ';
+        }
+    }else {
+        $output .=
+        '
+       
+        <div class="row mt-2">
+        <div class="col-md-6"><label class="labels">First name</label>
+            <input type="text" required class="form-control" placeholder="first name" value="" name="firstName">
+        </div>
+        <div class="col-md-6"><label class="labels">Last name</label>
+            <input type="text" required class="form-control" value="" placeholder="last name" name="lastName">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12"><label class="labels">Phone Number</label>
+            <input type="text" required class="form-control" placeholder="enter phone number" value="" name="phone">
+        </div>
+        
+        <div class="col-md-6"><label class="labels">Zip</label>
+            <input type="text" required class="form-control" placeholder="enter zip" value="" name="zip"> 
+        </div>
+        <div class="col-md-6"><label class="labels">City</label>
+            <input type="text" required class="form-control" placeholder="enter city" value="" name="city">
+        </div>
+       
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12"><label class="labels">Address</label>
+            <input type="text" required class="form-control" placeholder="enter address" value="" name="address">
+        </div>
+        
+    </div>
+    <div class="mt-5 text-center">
+    <a href="http://localhost/vizsga_project/?page=index" class="btn btn-dark profile-button">Back</a>
+        <button class="btn btn-dark profile-button" name="profileAddress" type="submit">Save Profile</button>
+    </div>
+    ';
+    }
+    
+    echo $output;
+}
+
+if (isset($_POST["action"]) && $_POST["action"] == "checkOutAddress" ) {
+
+    $output = '';
+    $querys = new Querys();
+    $data = $querys->getAddresInfo(); 
+    
+    if(isset(($_SESSION["addressId"])) && !empty($data)) {
+        foreach ($data as $row) {
+
+            $output .=
+
+            // if the user is logged in but has address
+                '
+                
+                
+                <div class="row">
+                <div class="col-md-6 mb-3">
+                  <input disabled type="text" class="form-control rounded-0" id="firstName" name="firstName" placeholder="First name" value="'.$row["firstName"].'" required="">
+                  <div class="invalid-feedback"> Valid first name is required. </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <input disabled type="text" class="form-control rounded-0" id="lastName" name="lastName" placeholder="Last name" value="'.$row["lastName"].'" required="">
+                  <div class="invalid-feedback"> Valid last name is required. </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3 mb-3">
+                <input disabled type="number" class="form-control rounded-0" value="'.$row["zip"].'" rounded-0" id="zip" name="zip" placeholder="Zip code" required="">
+                  <div class="invalid-feedback"> Zip code required. </div>
+                </div>
+                <div class="col-md-5 mb-3">
+                  <input disabled type="text" value="'.$row["city"].'" class="form-control rounded-0" id="city" name="city" placeholder="City" required="">
+                  <div class="invalid-feedback"> City required. </div>
+                  </select>
+                  <div class="invalid-feedback"> Please enter your city. </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <input disabled type="text" value="'.$row["adress"].'" class="form-control rounded-0" id="address" name="address" placeholder="1234 Main St" required="">
+                <div class="invalid-feedback"> Please enter your shipping address. </div>
+              </div>
+              <div class="mb-3">
+                <input disabled type="text" value="'.$row["phone"].'" class="form-control rounded-0" id="phone" name="phone" placeholder="Phone" required="">
+                <div class="invalid-feedback"> Please enter your phone number. </div>
+              </div>
+
+              <hr class="mb-4">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input rounded-0" id="save-info">
+                <label class="custom-control-label" for="save-info">Agree to Term & Conditions</label>
+              </div>
+              <hr class="mb-4">
+              <h4 class="mb-3">Payment</h4>
+              <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                  <input id="credit"  name="paymentMethod" type="radio" class="custom-control-input rounded-0" checked="" required="">
+                  <label class="custom-control-label" for="credit">Credit card</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input rounded-0" required="">
+                  <label class="custom-control-label" for="debit">Debit card</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input rounded-0" required="">
+                  <label class="custom-control-label" for="paypal">PayPal</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="cc-name">Name on card</label>
+                  <input  type="text" required class="form-control rounded-0" id="cc-name" name="cc-name" placeholder="Your full name as displayed in your card" >
+                 
+                  <div id="fullName-feedback" class="invalid-feedback"> Name on card is required </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cc-number">Credit card number</label>
+                  <input type="number" required class="form-control rounded-0" id="cc-number" name="cc-number" placeholder="" >
+                  <div id="ccNumber-feedback" class="invalid-feedback"> Credit card number is required </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 mb-3">
+                  <label for="cc-expiration">Expiration</label>
+                  <input type="text" required class="form-control rounded-0" id="cc-expiration" name="cc-expiration" placeholder="00/00" maxlength="5">
+                  <div id="ccExpiration-feedback" class="invalid-feedback"> Expiration date required </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="cc-cvv">CVV</label>
+                  <input type="number" required class="form-control rounded-0" id="cc-cvv" name="cc-cvv" placeholder="" maxlength="3">
+                  <div id="ccCvv-feedback" class="invalid-feedback"> Security code required </div>
+                </div>
+              </div>
+              <hr class="mb-4">
+              <i class="bi bi-box-arrow-in-left"></i>
+              <span><a href="javascript:history.back(1)">Continue shopping</a> </span>
+              <button class="btn btn-dark btn-block rounded-0" type="submit" name="completedOrderBtn">Continue to checkout</button>
+              <footer class="my-5 pt-5 text-muted text-center text-small">
+                <p class="mb-1">©Skincare Co. 2023 </p>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><a href="#">Privacy</a></li>
+                  <li class="list-inline-item"><a href="#">Terms</a></li>
+                  <li class="list-inline-item"><a href="#">Support</a></li>
+                </ul>
+              </footer>';
+        }
+    }else {
+      // if the user is logged in but dont have address 
+        $output .=
+        ' 
+        
+        <span style="display: inline-block;">Please add your address to your account to finish the checkout!
+              <a style="text-decoration: none; color: rgb(255, 0, 119);" href="http://localhost/vizsga_project/Profile_Pages/profile.php">Open profile page.</a>
+            </span>';
+    }
+    echo $output;
+}
+?>
+<script >
+
+
+
+</script>

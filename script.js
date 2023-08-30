@@ -1,3 +1,5 @@
+// sign in / sign up page script and hide carousel and navbar
+
 $(document).ready(function() {
 	
 	hideNavbar();

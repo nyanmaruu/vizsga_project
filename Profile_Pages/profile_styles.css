@@ -1,0 +1,47 @@
+body {
+ 
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: auto;
+  
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+
+  50% {
+      background-position: 100% 50%;
+  }
+
+  100% {
+      background-position: 0% 50%;
+  }
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: #f649d0;
+}
+
+.labels {
+  font-size: 11px;
+}
+
+#profileImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #000000;
+  font-size: 70px;
+  color: #fff;
+  text-align: center;
+  line-height: 120px;
+  margin: 20px 0;
+}
+
+#firstName {
+  display: none;
+}
+

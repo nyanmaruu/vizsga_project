@@ -1,4 +1,5 @@
-
+        
+        
         $(function() {
             $("#modal").click(function() {
                 $.ajax({
@@ -124,7 +125,7 @@
 
             })
         }
-
+        
         function updateProductQuantity()
         {
            
@@ -141,6 +142,7 @@
                 }
             })
         }       
+
 
         function increaseValue(value)
         {
@@ -160,5 +162,4 @@
             document.getElementById('inputQty').value = value;
         }
 
-       
         

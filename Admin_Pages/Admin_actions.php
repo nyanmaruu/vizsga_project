@@ -27,7 +27,7 @@ foreach ($order as $row) {
             <td>'.$row["firstName"].' '.$row["lastName"].'</td>
             <td>'.$row["users_email"].'</td>
             <td>'.$row["adress"].'</td>
-            <td>'.$row["total_price"].' $</td>
+            <td>'.$row["total_ordered_price"].' $</td>
 
             <td>
                 <a href="#editEmployeeModal" class="edit" data-toggle="modal">
@@ -47,3 +47,64 @@ if(isset($_POST["action"]) && $_POST["action"] == "deleteOrder") {
     $order= $querys->deleteOrder($_POST["orderId"]);
 
 }
+
+if (isset($_POST["action"]) && $_POST["action"] == "countOrders") {
+   
+
+    $output = '';
+    $order = $querys->countAllOrder();
+
+    foreach ($order as $row) {
+       $output .= '
+
+     '.$row["ordersNumber"].' 
+       ';
+    }
+    echo $output;
+    }
+   
+
+    if (isset($_POST["action"]) && $_POST["action"] == "countUsers") {
+   
+
+        $output = '';
+        $order = $querys->countAllUsers();
+    
+        foreach ($order as $row) {
+           $output .= '
+    
+         '.$row["usersNumber"].' 
+           ';
+        }
+        echo $output;
+        }
+
+        if (isset($_POST["action"]) && $_POST["action"] == "countAdmins") {
+   
+
+            $output = '';
+            $order = $querys->countAllAdmins();
+        
+            foreach ($order as $row) {
+               $output .= '
+        
+             '.$row["adminsNumber"].' 
+               ';
+            }
+            echo $output;
+            }
+
+            if (isset($_POST["action"]) && $_POST["action"] == "countProducts") {
+   
+
+                $output = '';
+                $order = $querys->countAllProducts();
+            
+                foreach ($order as $row) {
+                   $output .= '
+            
+                 '.$row["productsNumber"].' 
+                   ';
+                }
+                echo $output;
+                }
