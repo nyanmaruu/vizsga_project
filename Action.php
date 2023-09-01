@@ -535,8 +535,9 @@ if (isset($_POST["action"]) && $_POST["action"] == "checkOutAddress" ) {
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="cc-cvv">CVV</label>
-                  <input type="number" required class="form-control rounded-0" id="cc-cvv" name="cc-cvv" placeholder="" maxlength="3">
+                  <input type="text" required class="form-control rounded-0" id="cc-cvv" name="cc-cvv" placeholder="" maxlength="3">
                   <div id="ccCvv-feedback" class="invalid-feedback"> Security code required </div>
+                  <div id="ccCvv-feedback-justnumber" class="invalid-feedback">You can only use numbers! </div>
                 </div>
               </div>
               <hr class="mb-4">

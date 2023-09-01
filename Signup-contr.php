@@ -20,31 +20,31 @@ class SignupContr extends SignUp  {
         if($this->emptyInput() == false)
         {
             // echo "Empty input!";
-            header("location: http://localhost/vizsga_project/?page=index&error=emptyinput");
+            header("location: http://localhost/vizsga_project/?page=signupPage&error=emptySignupinput");
             exit();
         }
         if($this->invalidUid() == false)
         {
             // echo "Invalid username!";
-            header("location: http://localhost/vizsga_project/?page=index&error=username");
+            header("location: http://localhost/vizsga_project/?page=signupPage&error=username");
             exit();
         }
         if($this->invalidEmail() == false)
         {
             // echo "Invalid email!";
-            header("location: http://localhost/vizsga_project/?page=index&error=email");
+            header("location: http://localhost/vizsga_project/?page=signupPage&error=email");
             exit();
         }
         if($this->pwdMatch() == false)
         {
             // echo "Passwords dont't match!";
-            header("location: http://localhost/vizsga_project/?page=index&error=passwordmatch");
+            header("location: http://localhost/vizsga_project/?page=signupPage&error=passwordmatch");
             exit();
         }
         if($this->uidTakenCheck() == false)
         {
             // echo "Username or email taken!";
-            header("location: http://localhost/vizsga_project/?page=index&error=useroremailtaken");
+            header("location: http://localhost/vizsga_project/?page=signupPage&error=useroremailtaken");
             exit();
         }
 

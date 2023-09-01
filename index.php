@@ -96,50 +96,51 @@
 
 
 
-        <h2 id="best_sellers_text">shop by</h2>
-        <!-- main category display start -->
-        <div id="main-category-landing" class="container w-50 ">
-            <div class="row">
+        
+       <!-- main category display start -->
+       <div  id="main-category-landing" class="container">
+        <h2 class="mt-5" id="best_sellers_text">shop by</h2>
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-lg-8 row-cols-xl-5  w-100 justify-content-center mx-auto">
 
-                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
+                <div class="col  mb-2 ">
                     <div class="card border-0 ">
-                        <img id="main-category-img" src="pictures/main_category_cleanser.png" class="card-img-top" alt="COSRX-snail">
+                        <img id="main-category-img" src="pictures/tonymoly_cleanser.webp" class="card-img-top" alt="COSRX-snail">
+                        <div class="card-body text-center mt-2">
+                            <a id="main-category-img-link" href="?page=productsPage&categoryId=2">CLEANSER</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col  mb-2 ">
+                    <div class="card border-0 ">
+                        <img id="main-category-img" src="pictures/klairs_cream.webp" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
                             <a id="main-category-img-link" href="?page=productsPage&categoryId=2">CREAM</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
-                    <div class="card border-0 ">
-                        <img id="main-category-img" src="pictures/main_category_cream.png" class="card-img-top" alt="COSRX-snail">
-                        <div class="card-body text-center mt-2">
-                            <a id="main-category-img-link" href="?page=productsPage&categoryId=2">CREAM</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
+                <div class="col  mb-2 ">
                     <div class="card border-0">
-                        <img id="main-category-img" src="pictures/main_category_toner.png" class="card-img-top" alt="COSRX-snail">
+                        <img id="main-category-img" src="pictures/etude_toner.webp" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
                             <a id="main-category-img-link" href="?page=productsPage&categoryId=3">TONER</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
+                <div class="col  mb-2 ">
                     <div class="card border-0">
-                        <img id="main-category-img" src="pictures/main_category_serum.png" class="card-img-top" alt="COSRX-snail">
+                        <img id="main-category-img" src="pictures/gooddays_serum.webp" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
                             <a id="main-category-img-link" href="?page=productsPage&categoryId=4">SERUM</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-sm-6 col-xs-6 mb-2">
+                <div class="col  mb-2 ">
                     <div class="card border-0">
-                        <img id="main-category-img" src="pictures/main_category_essence.png" class="card-img-top" alt="COSRX-snail">
+                        <img id="main-category-img" src="pictures/missha_essence.webp" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body text-center mt-2">
                             <a id="main-category-img-link" href="?page=productsPage&categoryId=5">ESSENCE</a>
                         </div>

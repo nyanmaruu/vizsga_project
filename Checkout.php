@@ -291,22 +291,31 @@ $cartClass = new Session_Cart();
       return false;
     }
   }
+  let ccCvvError = true;
 
-  function validateCcCvv() {
+function validateCcCvv() {
+  let ccCvvValue = $("#cc-cvv").val();
+  let numberRegex = /^\d{3,4}$/;
+  let errorMessage = "";
 
-    let ccCvvValue = $("#cc-cvv").val();
-    
-    if (ccCvvValue.length == "") {
-      $("#ccCvv-feedback").show();
+  switch (true) {
+    case ccCvvValue.length === 0:
+      errorMessage = "CVV is required!";
       ccCvvError = false;
-      return false;
-    } 
-    else {
-      $("#ccCvv-feedback").hide();
-    }
-
-    
+      break;
+    case !numberRegex.test(ccCvvValue):
+      errorMessage = "CVV must be number and 3 digit!";
+      ccCvvError = false;
+      break;
+    default:
+      ccCvvError = true;
   }
+
+  $("#ccCvv-feedback").text(errorMessage).toggle(errorMessage !== "");
+}
+
+
+
 
   function get(name) {
     if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))

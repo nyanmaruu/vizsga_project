@@ -18,7 +18,7 @@ class Login extends Connection {
         if($stmt->rowCount() == 0)
         {
             $stmt = null;
-            header("location: http://localhost/vizsga_project/?page=index&error=usernotfound");
+            header("location: http://localhost/vizsga_project/?page=signupPage&error=usernameOrPasswordWrong");
             exit();
         }
 
@@ -28,7 +28,7 @@ class Login extends Connection {
         if($checkPwd == false) 
         {
             $stmt = null;
-            header("location: http://localhost/vizsga_project/?page=index&error=wrongpwd");
+            header("location: http://localhost/vizsga_project/?page=signupPage&error=usernameOrPasswordWrong");
             exit();
         }
         elseif($checkPwd == true) 

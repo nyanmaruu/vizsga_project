@@ -18,8 +18,9 @@ if(isset($_POST["submit"]))
     $signup->signupUser();
 
     //Going back to the front page
-    header("location: http://localhost/vizsga_project/?page=index&error=none");
+    header("location:http://localhost/vizsga_project/?page=signupPage&error=none");
     echo $uid, $pwd, $pwdrepeat, $email;
     print_r($uid, $pwd, $pwdrepeat, $email);
+    
 }
 
