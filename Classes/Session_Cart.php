@@ -60,9 +60,12 @@ class  Session_Cart
     public function getSubtotal()
     {
         $totalprice = 0;
-        foreach ($_SESSION['cart'] as $product_value) {
-            $totalprice += $product_value['price'];
+        if (empty($_SESSION['cart'])) {
+            foreach ($_SESSION['cart'] as $product_value) {
+                $totalprice += $product_value['price'];
+            }
         }
+        
         return $totalprice;
     }
 

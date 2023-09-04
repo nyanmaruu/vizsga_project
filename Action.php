@@ -47,7 +47,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "getSearchResult") {
     $data = $querys->getSearchResult();
     foreach ($data as $row) {
         $output .=
-        '
+            '
             
             <div class="col-6 col-md-4 col-lg-3 mb-4">
             <div class="card border-0 mt-5">
@@ -79,7 +79,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "getProduct") {
 
     $output = '';
     $data = $querys->getProduct($_POST["productId"]);
-   
+
 
 
     foreach ($data as $row) {
@@ -137,10 +137,10 @@ if (isset($_POST["action"]) && $_POST["action"] == "addToCartModal") {
 
     $output = '';
     $product = $querys->addToModal($_POST["productId"]);
-    
+
     $cartClass->setCartSession($product, $_POST['qty']);
     $cart = $cartClass->getCartSession();
-    
+
 
 
     foreach ($cart as $row) {
@@ -242,11 +242,11 @@ if (isset($_POST["action"]) && $_POST["action"] == "removeCartData") {
 }
 
 
-if (isset($_POST["action"]) && $_POST["action"] == "addToCheckout" ) {
+if (isset($_POST["action"]) && $_POST["action"] == "addToCheckout") {
 
     $output = '';
     $cart = $cartClass->getCartSession();
-    
+
     foreach ($cart as $row) {
 
         $output .=
@@ -277,54 +277,53 @@ if (isset($_POST["action"]) && $_POST["action"] == "removeCheckoutData") {
     $output = '';
 
     $cart = $cartClass->removeProductSession($_POST['productId']);
-
-
 }
 
 
-function test($email, $firstname, $lastName, $zip, $city, $adress, $phone, $ccName, $ccNumber, $ccExpiration, $ccCvv ){
+function test($email, $firstname, $lastName, $zip, $city, $adress, $phone, $ccName, $ccNumber, $ccExpiration, $ccCvv)
+{
     $querys = new Querys();
-    $querys->contactInformationAddToDb($email, $firstname, $lastName, $zip, $city, $adress, $phone, $ccName, $ccNumber, $ccExpiration, $ccCvv );
-
-       
+    $querys->contactInformationAddToDb($email, $firstname, $lastName, $zip, $city, $adress, $phone, $ccName, $ccNumber, $ccExpiration, $ccCvv);
 }
-if (isset($_POST["action"]) && $_POST["action"] == "completedOrder" 
- ) {
-        test(
-            $_POST['emailValue'],
-            $_POST['firstNameValue'],
-            $_POST['lastNameValue'],
-            $_POST['zipValue'], 
-            $_POST['cityValue'],  
-            $_POST['adressValue'], 
-            $_POST['phoneValue'],
-            $_POST['ccNameValue'],
-            $_POST['ccNumberValue'],
-            $_POST['ccExpirationValue'],
-            $_POST['ccCvvValue']);
-    }
+if (
+    isset($_POST["action"]) && $_POST["action"] == "completedOrder"
+) {
+    test(
+        $_POST['emailValue'],
+        $_POST['firstNameValue'],
+        $_POST['lastNameValue'],
+        $_POST['zipValue'],
+        $_POST['cityValue'],
+        $_POST['adressValue'],
+        $_POST['phoneValue'],
+        $_POST['ccNameValue'],
+        $_POST['ccNumberValue'],
+        $_POST['ccExpirationValue'],
+        $_POST['ccCvvValue']
+    );
+}
 
 
 if (isset($_POST["action"]) && $_POST["action"] == "getSubtotal") {
     $subtotal = $cartClass->getSubtotal();
     $output = '';
-   
-        $output .=
-            '
-         $'.$subtotal.'
+
+    $output .=
+        '
+         $' . $subtotal . '
         ';
-    
+
     echo $output;
 }
 
 
-if (isset($_POST["action"]) && $_POST["action"] == "profileUpdate" ) {
+if (isset($_POST["action"]) && $_POST["action"] == "profileUpdate") {
 
     $output = '';
     $querys = new Querys();
-    $data = $querys->getAddresInfo(); 
-    
-    if(isset(($_SESSION["addressId"])) && !empty($data)) {
+    $data = $querys->getAddresInfo();
+
+    if (!empty($data)) {
         foreach ($data as $row) {
 
             $output .=
@@ -332,28 +331,28 @@ if (isset($_POST["action"]) && $_POST["action"] == "profileUpdate" ) {
                 
                 <div class="row mt-2">
                 <div class="col-md-6"><label class="labels">First name</label>
-                    <input type="text" class="form-control" placeholder="first name" value="'.$row["firstName"].'" name="firstName">
+                    <input type="text" class="form-control" placeholder="first name" value="' . $row["firstName"] . '" name="firstName">
                 </div>
                 <div class="col-md-6"><label class="labels">Last name</label>
-                    <input type="text" class="form-control" value="'.$row["lastName"].'" placeholder="last name" name="lastName">
+                    <input type="text" class="form-control" value="' . $row["lastName"] . '" placeholder="last name" name="lastName">
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-12"><label class="labels">Phone Number</label>
-                    <input type="text" class="form-control" placeholder="enter phone number" value="'.$row["phone"].'" name="phone">
+                    <input type="text" class="form-control" placeholder="enter phone number" value="' . $row["phone"] . '" name="phone">
                 </div>
                 
                 <div class="col-md-6"><label class="labels">Zip</label>
-                    <input type="text" class="form-control" placeholder="enter zip" value="'.$row["zip"].'" name="zip"> 
+                    <input type="text" class="form-control" placeholder="enter zip" value="' . $row["zip"] . '" name="zip"> 
                 </div>
                 <div class="col-md-6"><label class="labels">City</label>
-                    <input type="text" class="form-control" placeholder="enter city" value="'.$row["city"].'" name="city">
+                    <input type="text" class="form-control" placeholder="enter city" value="' . $row["city"] . '" name="city">
                 </div>
                
             </div>
             <div class="row mt-3">
                 <div class="col-md-12"><label class="labels">Address</label>
-                    <input type="text" class="form-control" placeholder="enter address" value="'.$row["adress"].'" name="address">
+                    <input type="text" class="form-control" placeholder="enter address" value="' . $row["adress"] . '" name="address">
                 </div>
                 
             </div>
@@ -363,9 +362,9 @@ if (isset($_POST["action"]) && $_POST["action"] == "profileUpdate" ) {
             </div>
             ';
         }
-    }else {
+    } else {
         $output .=
-        '
+            '
        
         <div class="row mt-2">
         <div class="col-md-6"><label class="labels">First name</label>
@@ -400,43 +399,43 @@ if (isset($_POST["action"]) && $_POST["action"] == "profileUpdate" ) {
     </div>
     ';
     }
-    
+
     echo $output;
 }
 
-if (isset($_POST["action"]) && $_POST["action"] == "checkOutAddress" ) {
+if (isset($_POST["action"]) && $_POST["action"] == "checkOutAddress") {
 
     $output = '';
     $querys = new Querys();
-    $data = $querys->getAddresInfo(); 
-    
-    if(isset(($_SESSION["addressId"])) && !empty($data)) {
+    $data = $querys->getAddresInfo();
+
+    if (!empty($data)) {
         foreach ($data as $row) {
 
             $output .=
 
-            // if the user is logged in but has address
+                // if the user is logged in but has address
                 '
                 
                 
                 <div class="row">
                 <div class="col-md-6 mb-3">
-                  <input disabled type="text" class="form-control rounded-0" id="firstName" name="firstName" placeholder="First name" value="'.$row["firstName"].'" required="">
+                  <input disabled type="text" class="form-control rounded-0" id="firstName" name="firstName" placeholder="First name" value="' . $row["firstName"] . '" required="">
                   <div class="invalid-feedback"> Valid first name is required. </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <input disabled type="text" class="form-control rounded-0" id="lastName" name="lastName" placeholder="Last name" value="'.$row["lastName"].'" required="">
+                  <input disabled type="text" class="form-control rounded-0" id="lastName" name="lastName" placeholder="Last name" value="' . $row["lastName"] . '" required="">
                   <div class="invalid-feedback"> Valid last name is required. </div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-3 mb-3">
-                <input disabled type="number" class="form-control rounded-0" value="'.$row["zip"].'" rounded-0" id="zip" name="zip" placeholder="Zip code" required="">
+                <input disabled type="number" class="form-control rounded-0" value="' . $row["zip"] . '" rounded-0" id="zip" name="zip" placeholder="Zip code" required="">
                   <div class="invalid-feedback"> Zip code required. </div>
                 </div>
                 <div class="col-md-5 mb-3">
-                  <input disabled type="text" value="'.$row["city"].'" class="form-control rounded-0" id="city" name="city" placeholder="City" required="">
+                  <input disabled type="text" value="' . $row["city"] . '" class="form-control rounded-0" id="city" name="city" placeholder="City" required="">
                   <div class="invalid-feedback"> City required. </div>
                   </select>
                   <div class="invalid-feedback"> Please enter your city. </div>
@@ -444,11 +443,11 @@ if (isset($_POST["action"]) && $_POST["action"] == "checkOutAddress" ) {
               </div>
 
               <div class="mb-3">
-                <input disabled type="text" value="'.$row["adress"].'" class="form-control rounded-0" id="address" name="address" placeholder="1234 Main St" required="">
+                <input disabled type="text" value="' . $row["adress"] . '" class="form-control rounded-0" id="address" name="address" placeholder="1234 Main St" required="">
                 <div class="invalid-feedback"> Please enter your shipping address. </div>
               </div>
               <div class="mb-3">
-                <input disabled type="text" value="'.$row["phone"].'" class="form-control rounded-0" id="phone" name="phone" placeholder="Phone" required="">
+                <input disabled type="text" value="' . $row["phone"] . '" class="form-control rounded-0" id="phone" name="phone" placeholder="Phone" required="">
                 <div class="invalid-feedback"> Please enter your phone number. </div>
               </div>
 
@@ -513,10 +512,10 @@ if (isset($_POST["action"]) && $_POST["action"] == "checkOutAddress" ) {
                 </ul>
               </footer>';
         }
-    }else {
-      // if the user is logged in but dont have address 
+    } else {
+        // if the user is logged in but dont have address 
         $output .=
-        ' 
+            ' 
         
         <span style="display: inline-block;">Please add your address to your account to finish the checkout!
               <a style="text-decoration: none; color: rgb(255, 0, 119);" href="http://localhost/vizsga_project/Profile_Pages/profile.php">Open profile page.</a>
