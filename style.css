@@ -61,9 +61,20 @@ li {list-style-type: none;}
 #main-category-img-link{
   
   color: black;
+  text-decoration: none;
 }
 
-#best_sellers_text {font-size: 40px; margin-left: 100px; margin-bottom: 40px; text-transform: uppercase;}
+#best_sellers_text {font-size: 40px;margin-left: 20px; margin-bottom: 40px; text-transform: uppercase;}
+
+
+@media screen and (max-width: 700px) {
+
+  #best_sellers_text {
+  
+  font-size: 25px;
+  
+  }
+}
 
 /* best seller header end*/
 

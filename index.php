@@ -113,7 +113,7 @@
 
                 <div class="col  mb-2 ">
                     <div class="card border-0 ">
-                        <img id="main-category-img" src="pictures/klairs_cream.webp" class="card-img-top" alt="COSRX-snail">
+                        <img id="main-category-img" src="pictures/klairs_cream.webp" class="card-img-top" alt="COSRX-snail" >
                         <div class="card-body text-center mt-2">
                             <a id="main-category-img-link" href="?page=productsPage&categoryId=2">CREAM</a>
                         </div>
@@ -151,53 +151,56 @@
         </div>
         <!-- main category display end -->
         <!-- best sellers cards start -->
-        <div class="container col-8">
-            <div class="row">
+        
+        <div class="container">
+        <h2 class="mt-5" id="best_sellers_text">FEATURED PRODUCTS</h2>
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-lg-8 row-cols-xl-5  w-100 justify-content-center mx-auto mt-5">
+            
 
-                <div class="col-lg-3 col-sm-6 col-xs-6 mb-4">
+                <div class="col">
                     <div class="card border-0">
                         <img src="pictures/klairs_toner.webp" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body">
                             <p class="card-text">KLAIRS</p>
                             <hr>
                             <p class="card-text">Supple Preparation Toner</p>
-                            <button class="btn btn-dark">Add to bag</button>
+                           
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-xs-6 mb-4">
+                <div class="col">
                     <div class="card border-0 ">
                         <img src="pictures/banila_cleanser.webp" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body">
                             <p class="card-text">BANILA CO</p>
                             <hr>
                             <p class="card-text">Clean It Zero Cleansing</p>
-                            <button class="btn btn-dark">Add to bag</button>
+                            
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-xs-6 mb-4">
+                <div class="col">
                     <div class="card border-0">
                         <img src="pictures/gooddays_serum.webp" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body">
                             <p class="card-text">GOOD DAYS FOR ALL</p>
                             <hr>
                             <p class="card-text">C’s The Day Serum</p>
-                            <button class="btn btn-dark">Add to bag</button>
+                            
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 mb-4 col-sm-6 col-xs-6">
+                <div class="col">
                     <div class="card border-0">
                         <img src="pictures/neogen_serum.webp" class="card-img-top" alt="COSRX-snail">
                         <div class="card-body">
                             <p class="card-text">NEOGEN</p>
                             <hr>
                             <p class="card-text">Real Ferment Micro Serum</p>
-                            <button class="btn btn-dark">Add to bag</button>
+                           
                         </div>
                     </div>
                 </div>
