@@ -8,6 +8,7 @@ $cartClass = new Session_Cart();
   <div class="row">
 
     <div id="checkoutCartSection" class="col-12 col-sm-12 col-md-4 order-md-2">
+      <div id="checkout-feedback-display" class="alert mt-2" role="alert"></div>
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted mt-2">Your cart</span>
 
@@ -75,16 +76,9 @@ $cartClass = new Session_Cart();
         <div class="row">
           <div class="col-12">
 
-
-
-            <!-- <h4 style="display: inline-block;margin-right: 160px;">Contact information</h4> -->
             <span style="display: inline-block;">Please log in to your account to finish the checkout!
               <a style="text-decoration: none; color: rgb(255, 0, 119);" href="?page=signupPage">Log in.</a>
             </span>
-            <!-- <div class="col-12 mb-3 mt-4">
-            <input type="email" class="form-control rounded-0" id="email" placeholder="Email">
-            <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
-          </div> -->
 
           </div>
         </div>
@@ -204,21 +198,40 @@ $cartClass = new Session_Cart();
     hideCarousel();
     addressDataForCheckout();
 
-
-
   })
 
-  // let url = window.location.href;
-  // const errors =  document.getElementById("errorHandler");
+  //checkout errors
+  let url = window.location.href;
+  let checkouterrors = document.getElementById("checkout-feedback-display");
+  if (url.match("erroremptyCart")) {
+    checkouterrors.style.display = "block";
+    checkouterrors.classList.add("alert-danger");
+    checkouterrors.innerHTML = "There are no items in your cart!";
 
-  // if(!url.match("missingCreditInfos")){
-  //   errors.style.display = "none";
+  } else if (url.match("missingCreditInfos")) {
+    checkouterrors.style.display = "block";
+    checkouterrors.classList.add("alert-danger");
+    checkouterrors.innerHTML = "Please fill the form to complete the order!";
+  } else if (url.match("missingccName")) {
+    checkouterrors.style.display = "block";
+    checkouterrors.classList.add("alert-danger");
+    checkouterrors.innerHTML = "Your name on card information is missing!";
+  } else if (url.match("missingccNumber")) {
+    checkouterrors.style.display = "block";
+    checkouterrors.classList.add("alert-danger");
+    checkouterrors.innerHTML = "Your credit card number is missing!";
+  } else if (url.match("missingccExpiration")) {
+    checkouterrors.style.display = "block";
+    checkouterrors.classList.add("alert-danger");
+    checkouterrors.innerHTML = "Your expiration date is missing!";
+  } else if (url.match("missingccCvv")) {
+    checkouterrors.style.display = "block";
+    checkouterrors.classList.add("alert-danger");
+    checkouterrors.innerHTML = "Your CVV is missing!";
+  }
 
-  // } else {
-  //   errors.style.display = "block";
-  //   errors.style.color = "b61d1d";
-  //   alert("nya");
-  // }
+
+
 
 
   function checkoutValidation() {
@@ -249,7 +262,6 @@ $cartClass = new Session_Cart();
   }
 
 
-
   function validateFullName() {
 
     let fullNameValue = $("#cc-name").val();
@@ -263,59 +275,81 @@ $cartClass = new Session_Cart();
   }
 
   function validateCCNumber() {
+  let ccNumber = $("#cc-number").val();
+  let ccNumberFeedback = $("#ccNumber-feedback");
+  ccNumber = ccNumber.replace(/\D/g, '');
 
-    let ccNumberValue = $("#cc-number").val();
-    if (ccNumberValue.length == "") {
-      $("#ccNumber-feedback").show();
-      ccNumberError = false;
-      return false;
-    } else {
+  if (ccNumber === "") {
+    $("#ccNumber-feedback").show();
+    ccNumberError = false;
+    return false;
+  } 
+  else {
       $("#ccNumber-feedback").hide();
+      
     }
-  }
 
-  function validateCCExpiration() {
-
-    let expirationValue = $("#cc-expiration").val();
-    
-    if (expirationValue.length == "" ) {
-      $("#ccExpiration-feedback").show();
-      ccExpirationError = false;
-      return false;
-    } 
-  
-
-    if(regex.test(expirationValue)){
-      $("#ccCvv-feedback").show();
-      ccCvvError = false;
-      return false;
-    }
-  }
-  let ccCvvError = true;
-
-function validateCcCvv() {
-  let ccCvvValue = $("#cc-cvv").val();
-  let numberRegex = /^\d{3,4}$/;
-  let errorMessage = "";
-
-  switch (true) {
-    case ccCvvValue.length === 0:
-      errorMessage = "CVV is required!";
-      ccCvvError = false;
-      break;
-    case !numberRegex.test(ccCvvValue):
-      errorMessage = "CVV must be number and 3 digit!";
-      ccCvvError = false;
-      break;
-    default:
-      ccCvvError = true;
-  }
-
-  $("#ccCvv-feedback").text(errorMessage).toggle(errorMessage !== "");
 }
 
 
 
+  function validateCCExpiration() {
+    let expirationValue = $("#cc-expiration").val();
+    let ccExpirationFeedback = $("#ccExpiration-feedback");
+
+    if (expirationValue === "") {
+      ccExpirationFeedback.text("Please enter an expiration date");
+      ccExpirationFeedback.show();
+      return false;
+    }
+
+
+    const pattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (!pattern.test(expirationValue)) {
+      ccExpirationFeedback.text("Invalid expiration date format (MM/YY)");
+      ccExpirationFeedback.show();
+      return false;
+    }
+
+    const today = new Date();
+    const currentYear = today.getFullYear() % 100;
+    const currentMonth = today.getMonth() + 1;
+
+    const [inputMonth, inputYear] = expirationValue.split('/').map(Number);
+
+    if (inputYear < currentYear || (inputYear === currentYear && inputMonth < currentMonth)) {
+      ccExpirationFeedback.text("Card has expired");
+      ccExpirationFeedback.show();
+      return false;
+    }
+
+    ccExpirationFeedback.hide();
+    return true;
+  }
+
+
+  function validateCcCvv() {
+
+    let ccCvvError = true;
+    let ccCvvValue = $("#cc-cvv").val();
+    let numberRegex = /^\d{3,4}$/;
+    let errorMessage = "";
+
+    switch (true) {
+      case ccCvvValue.length === 0:
+        errorMessage = "CVV is required!";
+        ccCvvError = false;
+        break;
+      case !numberRegex.test(ccCvvValue):
+        errorMessage = "CVV must be number and 3 digit!";
+        ccCvvError = false;
+        break;
+      default:
+        ccCvvError = true;
+    }
+
+    $("#ccCvv-feedback").text(errorMessage).toggle(errorMessage !== "");
+  }
 
   function get(name) {
     if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
@@ -393,7 +427,6 @@ function validateCcCvv() {
       }
     })
   }
-
 
   function addressDataForCheckout() {
 

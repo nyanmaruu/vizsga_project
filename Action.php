@@ -242,46 +242,6 @@ if (isset($_POST["action"]) && $_POST["action"] == "removeCartData") {
 }
 
 
-
-// if (isset($_POST["action"]) && $_POST["action"]  == "updateQuantity") {
-
-//     $output = '';
-
-//     $cart = $cartClass->updateProductQuantitySession();
-
-
-
-
-//     foreach ($cart as $row) {
-
-//         $output .=
-//         '
-//         <div class="container-fluid">
-//             <div class="row">
-//                 <div class="col-md-4">
-//                     <img class="w-100" src="' . $row["image"] .' " "/>
-//                 </div>
-//                 <div class="col-md-8">
-//                     <p><strong>' . $row["name"] . '</strong> </p>
-
-//                     <div>
-//                         <label>
-//                             <input type="text" name="quantity" value="'.$row["quantity"].'" min="1" class="qty" readonly></input>
-//                             <span class="price"> $' . $row["price"] . ' </span>
-//                             <i class="bi bi-trash"  onclick="removeFromCart('.$row["id"].')" type="button"></i>
-
-//                         </label>
-//                     </div>
-
-//                 </div>
-//             </div>
-//         </div>
-//         <hr>
-//         ';
-//     } 
-//     echo $output;
-// }
-
 if (isset($_POST["action"]) && $_POST["action"] == "addToCheckout" ) {
 
     $output = '';
@@ -565,8 +525,4 @@ if (isset($_POST["action"]) && $_POST["action"] == "checkOutAddress" ) {
     echo $output;
 }
 ?>
-<script >
 
-
-
-</script>

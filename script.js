@@ -3,18 +3,16 @@
 $(document).ready(function () {
 	hideNavbar();
 	hideCarousel();
+	accountManagment();
 });
 
-let container = document.getElementById("container");
 
-toggle = () => {
-	container.classList.toggle("sign-in");
-	container.classList.toggle("sign-up");
-};
+// toggle = () => {
+// 	container.classList.toggle("sign-in");
+// 	container.classList.toggle("sign-up");
+// };
 
-setTimeout(() => {
-	container.classList.add("sign-in");
-}, 200);
+
 
 function hideNavbar() {
 	document.getElementById("hideNavbar").style.display = "none";
@@ -42,46 +40,63 @@ if (url.match("error=none")) {
 	errors.innerHTML = "Username or password is wrong!";
 }
 // sign up error display
-const changeContainerClass = document.getElementById("#container");
+
 const signuperrors = document.getElementById("signup-feedback-display");
 if (url.match("emptySignupinput")) {
-	errors.style.display = "block";
-	changeContainerClass.classList.remove("sign-in");
-	changeContainerClass.classList.add("sign-up");
-	errors.classList.add("alert-success");
-	errors.innerHTML = "Your account has been created! ";
+	signuperrors.style.display = "block";
+	signuperrors.classList.add("alert-danger");
+	signuperrors.innerHTML = "Please fill all information!";
+}else if (url.match("wrongUsernameOrPwd")) {
+	signuperrors.style.display = "block";
+	signuperrors.classList.add("alert-danger");
+	signuperrors.innerHTML = "Username or password is wrong!";
+}else if (url.match("invalidemail")) {
+	signuperrors.style.display = "block";
+	signuperrors.classList.add("alert-danger");
+	signuperrors.innerHTML = "Email is invalid!";
+}else if (url.match("passwordmatch")) {
+	signuperrors.style.display = "block";
+	signuperrors.classList.add("alert-danger");
+	signuperrors.innerHTML = "Passwords must match!";
+}else if (url.match("useroremailtaken")) {
+	signuperrors.style.display = "block";
+	signuperrors.classList.add("alert-danger");
+	signuperrors.innerHTML = "Username or email is taken!";
 }
 
 
-// // pupa code
-// function accountManagment() {
-//     let url = window.location.href;
-//     const errors = document.querySelector(".errorHandler");
-//     const wrapper = document.querySelector('#container');
-//     const loginLink = document.querySelector('.login-link');
-//     const registerLink = document.querySelector('.register-link');
 
-//     registerLink.addEventListener('click', () => {
-//         wrapper.classList.add('sign-in');
-//         localStorage.setItem('in', registerLink);
-//     })
 
-//     loginLink.addEventListener('click', () => {
-//         wrapper.classList.remove('sign-up')
-//         localStorage.removeItem('in', loginLink);
-//     })
 
-//     if (localStorage.getItem('in')) {
-//         wrapper.classList.add('active');
-//     } else {
-//         wrapper.classList.remove('active');
-//     }
 
-//     if (url.match("SuccessfullySignedUp")) {
-//         errors.style.display = "flex";
-//         errors.style.color = "green";
-//         wrapper.classList.remove('active');
-//         localStorage.removeItem('in', loginLink);
-//         errors.innerHTML = "Successfully signed up, feel free to login!";
-//     }
-// }
+function accountManagment() {
+	let container = document.getElementById("container");
+    const loginLink = document.querySelector('.signinLink');
+    const registerLink = document.querySelector('.signupLink');
+
+    registerLink.addEventListener('click', () => {
+		container.classList.remove("sign-in");
+		container.classList.add("sign-up");
+        localStorage.setItem('in', registerLink);
+    })
+
+    loginLink.addEventListener('click', () => {
+		container.classList.remove("sign-up");
+		container.classList.add("sign-in");
+        localStorage.removeItem('in', loginLink);
+    })
+
+    if (localStorage.getItem('in')) {
+        container.classList.remove("sign-in");
+        container.classList.add("sign-up");
+    } else {
+        container.classList.remove("sign-up");
+        container.classList.add("sign-in")
+    }
+	if(url.match("error=none")){
+		container.classList.remove("sign-up");
+		container.classList.add("sign-in");
+		localStorage.removeItem('in', loginLink);
+	}
+    
+}

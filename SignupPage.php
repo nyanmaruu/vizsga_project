@@ -36,7 +36,7 @@
 						<span>
 							Already have an account?
 						</span>
-						<b onclick="toggle()" class="pointer">
+						<b class="pointer signinLink">
 							Sign in here
 						</b>
 						<hr>
@@ -68,9 +68,12 @@
 
 
 		<div class="col align-items-center flex-col sign-in">
-			
-		<div id="signin-feedback-display" class="alert" role="alert"></div>
-			
+
+			<div id="signin-feedback-display" class="alert" role="alert"></div>
+
+
+
+
 			<div class="form-wrapper align-items-center">
 
 				<form action="./Login.php" method="POST">
@@ -93,7 +96,7 @@
 					<span>
 						Don't have an account?
 					</span>
-					<b onclick="toggle()" class="pointer">
+					<b class="pointer signupLink">
 						Sign up here
 					</b>
 					<hr>
@@ -129,33 +132,24 @@
 	<div class="row content-row">
 		<!-- SIGN IN CONTENT -->
 		<div class="col align-items-center flex-col">
-		
+
 			<div class="text sign-in">
 				<h2>
 					Welcome back
 				</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-
-				</p>
-			</div>
-			<div class="img sign-in">
 
 			</div>
+
 		</div>
 		<!-- END SIGN IN CONTENT -->
 		<!-- SIGN UP CONTENT -->
 		<div class="col align-items-center flex-col">
-			<div class="img sign-up">
 
-			</div>
 			<div class="text sign-up">
 				<h2>
 					Join with us
 				</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-				</p>
+
 			</div>
 		</div>
 		<!-- END SIGN UP CONTENT -->

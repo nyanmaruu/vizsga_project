@@ -5,7 +5,7 @@ $(document).ready(function(){
     var profileImage = $('#profileImage').text(intials);
     addressUpdate();
   });
-// insert form to profile page
+// insert form into profile page
   function addressUpdate()
   {
      

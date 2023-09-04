@@ -26,13 +26,13 @@ class SignupContr extends SignUp  {
         if($this->invalidUid() == false)
         {
             // echo "Invalid username!";
-            header("location: http://localhost/vizsga_project/?page=signupPage&error=username");
+            header("location: http://localhost/vizsga_project/?page=signupPage&error=wrongUsernameOrPwd");
             exit();
         }
         if($this->invalidEmail() == false)
         {
             // echo "Invalid email!";
-            header("location: http://localhost/vizsga_project/?page=signupPage&error=email");
+            header("location: http://localhost/vizsga_project/?page=signupPage&error=invalidemail");
             exit();
         }
         if($this->pwdMatch() == false)

@@ -9,13 +9,13 @@ $querys = new Querys();
 
 if (isset($_POST["action"]) && $_POST["action"] == "getOrder") {
 
-$output = '';
-$order = $querys->addOrderToTable();
+    $output = '';
+    $order = $querys->addOrderToTable();
 
-foreach ($order as $row) {
+    foreach ($order as $row) {
 
-    $output .=
-        '
+        $output .=
+            '
        <tr>
             <td>
                 <span class="custom-checkbox">
@@ -24,87 +24,86 @@ foreach ($order as $row) {
                 </span>
             </td>
 
-            <td>'.$row["firstName"].' '.$row["lastName"].'</td>
-            <td>'.$row["users_email"].'</td>
-            <td>'.$row["adress"].'</td>
-            <td>'.$row["total_ordered_price"].' $</td>
+            <td>' . $row["firstName"] . ' ' . $row["lastName"] . '</td>
+            <td>' . $row["users_email"] . '</td>
+            <td>' . $row["adress"] . '</td>
+            <td>' . $row["total_ordered_price"] . ' $</td>
 
             <td>
                 <a href="#editEmployeeModal" class="edit" data-toggle="modal">
                     <i class="material-icons"data-toggle="tooltip" title="Edit">&#xE254;
                     </i>
                 </a>
-                <a onclick="deleteOrder('.$row["id"].')"  class="delete" data-toggle="modal"><i
+                <a onclick="deleteOrder(' . $row["id"] . ')"  class="delete" data-toggle="modal"><i
                         class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
             </td>
         </tr>
     ';
-}
-echo $output;
+    }
+    echo $output;
 }
 
-if(isset($_POST["action"]) && $_POST["action"] == "deleteOrder") {
-    $order= $querys->deleteOrder($_POST["orderId"]);
-
+if (isset($_POST["action"]) && $_POST["action"] == "deleteOrder") {
+    $order = $querys->deleteOrder($_POST["orderId"]);
 }
 
 if (isset($_POST["action"]) && $_POST["action"] == "countOrders") {
-   
+
 
     $output = '';
     $order = $querys->countAllOrder();
 
     foreach ($order as $row) {
-       $output .= '
+        $output .= '
 
-     '.$row["ordersNumber"].' 
+     ' . $row["ordersNumber"] . ' 
        ';
     }
     echo $output;
-    }
-   
+}
 
-    if (isset($_POST["action"]) && $_POST["action"] == "countUsers") {
-   
 
-        $output = '';
-        $order = $querys->countAllUsers();
+if (isset($_POST["action"]) && $_POST["action"] == "countUsers") {
+
+
+    $output = '';
+    $order = $querys->countAllUsers();
+
+    foreach ($order as $row) {
+        $output .= '
     
-        foreach ($order as $row) {
-           $output .= '
-    
-         '.$row["usersNumber"].' 
+         ' . $row["usersNumber"] . ' 
            ';
-        }
-        echo $output;
-        }
+    }
+    echo $output;
+}
 
-        if (isset($_POST["action"]) && $_POST["action"] == "countAdmins") {
-   
+if (isset($_POST["action"]) && $_POST["action"] == "countAdmins") {
 
-            $output = '';
-            $order = $querys->countAllAdmins();
+
+    $output = '';
+    $order = $querys->countAllAdmins();
+
+    foreach ($order as $row) {
+        $output .= '
         
-            foreach ($order as $row) {
-               $output .= '
-        
-             '.$row["adminsNumber"].' 
+             ' . $row["adminsNumber"] . ' 
                ';
-            }
-            echo $output;
-            }
+    }
+    echo $output;
+}
 
-            if (isset($_POST["action"]) && $_POST["action"] == "countProducts") {
-   
+if (isset($_POST["action"]) && $_POST["action"] == "countProducts") {
 
-                $output = '';
-                $order = $querys->countAllProducts();
+
+    $output = '';
+    $order = $querys->countAllProducts();
+
+    foreach ($order as $row) {
+        $output .= '
             
-                foreach ($order as $row) {
-                   $output .= '
-            
-                 '.$row["productsNumber"].' 
+                 ' . $row["productsNumber"] . ' 
                    ';
-                }
-                echo $output;
-                }
+    }
+    echo $output;
+}

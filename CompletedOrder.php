@@ -14,9 +14,23 @@ if(isset($_POST["completedOrderBtn"]))
     $user =  $_SESSION["userid"];
     if(empty($ccName || $ccNumber || $ccExpiration ||  $ccCvv)) {
         header("location: http://localhost/vizsga_project/?page=checkoutPage&&error=missingCreditInfos");
-    }else if (empty($_SESSION["cart"])) {
-        header("location: http://localhost/vizsga_project/?page=checkoutPage&&erroremptyCart");
-    }else {
+    } 
+    else if(empty($ccName)){
+        header("location: http://localhost/vizsga_project/?page=checkoutPage&&error=missingccName");
+    }
+    else if(empty($ccNumber)){
+        header("location: http://localhost/vizsga_project/?page=checkoutPage&&error=missingccNumber");
+    }
+    else if(empty($ccExpiration)){
+        header("location: http://localhost/vizsga_project/?page=checkoutPage&&error=missingccExpiration");
+    }
+    else if(empty($ccCvv)){
+        header("location: http://localhost/vizsga_project/?page=checkoutPage&&error=missingccCvv");
+    }
+    else if (empty($_SESSION["cart"])) {
+        header("location: http://localhost/vizsga_project/?page=checkoutPage&erroremptyCart");
+    }
+    else {
         $querys->contactInformationAddToDb($user);
         header("location: SuccessfullyPayment\successfullyPayment.php");
         unset($_SESSION["cart"]);

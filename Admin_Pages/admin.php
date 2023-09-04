@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
@@ -14,21 +14,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="admin_styles.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-   
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
     <header>
-     
+
         <!-- Navbar start -->
         <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <div class="container-fluid">
                 <h5 class="navbar-brand mt-3" href="#">
                     <span>Welcome <?php echo $_SESSION["useruid"] ?>! </span>
                 </h5>
-                <a class="btn btn-dark btn-sm"  href="../Logout.php" >
+                <a class="btn btn-dark btn-sm" href="../Logout.php">
                     <span>Log out</span>
                 </a>
             </div>
@@ -43,7 +43,7 @@
         <div class="container pt-4"></div>
     </main>
     <!--Main layout-->
-    <!-- sidebar end-->
+
 
     <!-- admin panel cards start -->
     <div class="container">
@@ -71,11 +71,11 @@
                             <i class="fa fa-users f-left"></i>
                             <!-- display counted users start -->
                             <span id="displayUsersNumber">
-                                
+
                             </span>
-                             <!-- display counted users end -->
+                            <!-- display counted users end -->
                         </h2>
-                        
+
                     </div>
                 </div>
             </div>
@@ -87,12 +87,12 @@
                         <h2 class="text-right">
                             <i class="fa fa-solid fa-user f-left"></i>
                             <!-- display counted admins start -->
-                            <span  id="displayAdminsNumber">
+                            <span id="displayAdminsNumber">
 
                             </span>
-                             <!-- display counted admins end -->
+                            <!-- display counted admins end -->
                         </h2>
-                        
+
                     </div>
                 </div>
             </div>
@@ -103,11 +103,12 @@
                         <h5 class="m-b-20">All products</h5>
                         <h2 class="text-right">
                             <i class="fas fa-folder f-left "></i>
-                            <span  id="displayProductsNumber">
+                             <!-- display counted products start -->
+                            <span id="displayProductsNumber">
 
                             </span>
+                             <!-- display counted products end -->
                         </h2>
-                        
                     </div>
                 </div>
             </div>
@@ -123,9 +124,7 @@
                             <h2>Manage <b>Orders</b></h2>
                         </div>
                         <div class="col-sm-6">
-                           
-                            <a href="#deleteOrderModal" class="btn btn-danger" data-toggle="modal"><i
-                                    class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+                            <a href="#deleteOrderModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
                         </div>
                     </div>
                 </div>
@@ -133,7 +132,7 @@
                     <thead>
                         <tr>
                             <th>
-                                
+
                             </th>
                             <th>Name</th>
                             <th>Email</th>
@@ -142,88 +141,16 @@
                             <th>Status</th>
                         </tr>
                     </thead>
+                     <!-- display orders start -->
                     <tbody id="displayOrders">
-                      
+
                     </tbody>
+                    <!-- display orders end -->
                 </table>
-                
             </div>
         </div>
     </div>
-    <!-- Edit Modal HTML -->
-    <div id="addEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Add Employee</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <textarea class="form-control" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="text" class="form-control" required />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
-                        <input type="submit" class="btn btn-success" value="Add" />
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Edit Modal HTML -->
-    <div id="editEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Edit Employee</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <textarea class="form-control" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="text" class="form-control" required />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
-                        <input type="submit" class="btn btn-info" value="Save" />
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+   
     <!-- Delete Modal HTML -->
     <div id="deleteOrderModal" class="modal fade">
         <div class="modal-dialog">
@@ -242,15 +169,17 @@
                         </p>
                     </div>
                     <div id="deleteOrderWithModal" class="modal-footer">
-                        
+
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <script src="Admin.js"></script>
+
+
 
 
 </body>
+<script src="Admin.js"></script>
 
 </html>
