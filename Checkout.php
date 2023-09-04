@@ -275,21 +275,20 @@ $cartClass = new Session_Cart();
   }
 
   function validateCCNumber() {
-  let ccNumber = $("#cc-number").val();
-  let ccNumberFeedback = $("#ccNumber-feedback");
-  ccNumber = ccNumber.replace(/\D/g, '');
+    let ccNumber = $("#cc-number").val();
+    let ccNumberFeedback = $("#ccNumber-feedback");
+    ccNumber = ccNumber.replace(/\D/g, '');
 
-  if (ccNumber === "") {
-    $("#ccNumber-feedback").show();
-    ccNumberError = false;
-    return false;
-  } 
-  else {
+    if (ccNumber === "") {
+      $("#ccNumber-feedback").show();
+      ccNumberError = false;
+      return false;
+    } else {
       $("#ccNumber-feedback").hide();
-      
+
     }
 
-}
+  }
 
 
 

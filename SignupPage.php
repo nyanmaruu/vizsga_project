@@ -71,9 +71,6 @@
 
 			<div id="signin-feedback-display" class="alert" role="alert"></div>
 
-
-
-
 			<div class="form-wrapper align-items-center">
 
 				<form action="./Login.php" method="POST">
@@ -157,9 +154,6 @@
 	<!-- END CONTENT SECTION -->
 </div>
 </div>
-
-
-
 
 
 <script src="script.js"></script>

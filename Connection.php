@@ -36,20 +36,3 @@ class Connection
      }
     }
 }
-
-// class Dbh {
-
-//     protected function connect()
-//     {
-//      try {
-//          $username = "root";
-//          $password = "";
-//          $dbh = new PDO("mysql:host=localhost;dbname=vizsgaproject_ladmaczilinda", $username,$password);
-//          return $dbh;
-//      }
-//      catch (PDOException $e)
-//      {
-//         throw new Exception("Az adatbázissal való kapcsolódás sikertelen");
-//      }
-//     }
-//  }

@@ -7,13 +7,6 @@ $(document).ready(function () {
 });
 
 
-// toggle = () => {
-// 	container.classList.toggle("sign-in");
-// 	container.classList.toggle("sign-up");
-// };
-
-
-
 function hideNavbar() {
 	document.getElementById("hideNavbar").style.display = "none";
 }
@@ -63,9 +56,6 @@ if (url.match("emptySignupinput")) {
 	signuperrors.classList.add("alert-danger");
 	signuperrors.innerHTML = "Username or email is taken!";
 }
-
-
-
 
 
 

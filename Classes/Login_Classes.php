@@ -23,7 +23,7 @@ class Login extends Connection {
         }
 
         $checkPwd = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $checkPwd = password_verify($pwd, $pwdHashed[0]["users_pwd"] );
+        
 
         if($checkPwd == false) 
         {

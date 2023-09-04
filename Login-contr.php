@@ -17,7 +17,6 @@ class LoginContr extends Login  {
     {
         if($this->emptyInput() == false)
         {
-            // echo "Empty input!";
             header("location: http://localhost/vizsga_project/?page=signupPage&error=emptyinput");
             exit();
         }

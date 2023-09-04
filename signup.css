@@ -242,7 +242,7 @@
     transform: translateX(0);
   }
   
-  /* BACKGROUND */
+ 
   
   .container::before {
     content: "";
@@ -269,7 +269,7 @@
     right: 50%;
   }
   
-  /* RESPONSIVE */
+ 
   
   @media only screen and (max-width: 425px) {
   
@@ -285,9 +285,7 @@
        
     }
   
-    /* .container.sign-in .col.sign-up {
-        transform: translateY(100%);
-    } */
+   
   
     .container.sign-in .col.sign-in,
     .container.sign-up .col.sign-up {
